@@ -64,7 +64,7 @@ struct IslandExpandedView: View {
                 .frame(width: 36, height: 36)
 
             Circle()
-                .trim(from: 0, to: min(arousalScore / 10.0, 1.0))
+                .trim(from: 0, to: min(arousalScore / 100.0, 1.0))
                 .stroke(arousalColor, style: StrokeStyle(lineWidth: 3, lineCap: .round))
                 .frame(width: 36, height: 36)
                 .rotationEffect(.degrees(-90))

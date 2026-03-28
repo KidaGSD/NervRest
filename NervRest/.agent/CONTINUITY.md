@@ -1,6 +1,13 @@
 # NervRest Continuity
 
 ## [PROGRESS]
+- **2026-03-28T23:00Z** [CODE] V2 alignment Tasks 1+2: Scoring scale changed from 1-10 to 0-100 and biometric weights fixed across 5 files.
+  - `ArousalScore.swift` — level thresholds updated to 0-100 (0/<30/<50/<70/<90), comment updated.
+  - `StimulationEngine.swift` — `updateScore()` rewritten: biometric-first scoring (HR 50%, HRV 30%, RR 20%), respiratory rate support, output 0-100. Guard no longer requires app/stim; stim lookup is now optional.
+  - `ArousalGauge.swift` — arc progress `/10` → `/100`, score format `"%.1f"` → `"%.0f"`, preview value 6.2 → 62.
+  - `IslandCompactTrailing.swift` — format `"%.1f"` → `"%.0f"`, color thresholds to 0-100 scale, preview values updated.
+  - `IslandMinimal.swift` — color thresholds to 0-100 scale, preview values updated.
+  - Note: `IslandExpandedView.swift` still has `/ 10.0` on line 67 and `ShieldOverlayScreen.swift` has `"%.1f"` on line 138 — both owned by other agents, not touched.
 - **2026-03-28T22:22Z** [CODE] Moon mascot integration: Replaced emoji text with moon phase SVG images from asset catalog in AgentCharacter.swift, IslandCompactLeading.swift, IslandExpandedView.swift. Build succeeded (iPhone 17 Simulator). Committed `59cec60`.
 - **2026-03-28T16:00Z** [CODE] Task 4 (mechanism refinement): Connected InterventionScheduler phase changes to UI navigation.
   - `AppContainer.swift` — added `@Published var pendingNavigation: AppRoute?`; added Combine sink on `scheduler.$currentPhase` mapping `.strongNudge`→`.mismatchDetail`, `.intervention`→`.shieldOverlay`; wired `rampDownVM.onSuggestionSelected` to `scheduler.userChoseRampDown()`.
