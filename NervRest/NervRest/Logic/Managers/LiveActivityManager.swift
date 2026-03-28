@@ -34,9 +34,15 @@ class LiveActivityManager: ObservableObject, LiveActivityManaging {
                 pushType: nil
             )
             isActive = true
+            print("✅ Live Activity started successfully, id: \(currentActivity?.id ?? "nil")")
         } catch {
-            print("Failed to start Live Activity: \(error)")
+            print("❌ Failed to start Live Activity: \(error)")
+            print("❌ Error details: \(error.localizedDescription)")
         }
+
+        // Debug: check if Live Activities are enabled
+        print("📱 ActivityAuthorizationInfo: areActivitiesEnabled = \(ActivityAuthorizationInfo().areActivitiesEnabled)")
+        print("📱 Frequent push enabled = \(ActivityAuthorizationInfo().frequentPushesEnabled)")
     }
 
     func update(score: ArousalScore, heartRate: Int, hrv: Int, currentApp: String, minutesUntilAlarm: Int?) {

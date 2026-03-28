@@ -85,6 +85,7 @@
   - `color(for:)` signatures and switch logic unchanged. Build succeeded (iPhone 17 Simulator).
 
 ## [DISCOVERIES]
+- **2026-03-29T08:00Z** [TOOL] Deep UI Inspiration Research (Round 2) — Comprehensive cross-platform research across Pinterest, Dribbble, Behance, Mobbin, Oura, WHOOP, Calm, Rise, Kryo/MetaLab. Compiled into detailed design reference with hex values, SwiftUI parameters, and technique-specific breakdowns organized by: Background & Depth, Card & Container Patterns, Typography Hierarchy, Data Visualization, Color Usage, Micro-interactions. Full report in chat history.
 - **2026-03-28T17:30Z** [TOOL] UI Premium Design Research completed. Key findings for eliminating "vibe-coded" feel:
   1. Typography: Replace all-SF-Rounded with DM Serif Display (headings) + DM Sans (body), keep .rounded for numeric scores only
   2. Background: Single-color #171120 → multi-layer radial gradient + ~3% opacity noise overlay
