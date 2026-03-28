@@ -7,27 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09534053838617BCDE79B6E2 /* MismatchDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D744B89B7247ACA6456F4FF /* MismatchDetector.swift */; };
 		0A594CDAA67A3728287DB139 /* app-stim-scores.json in Resources */ = {isa = PBXBuildFile; fileRef = 33FB419EA1E9C449A1938684 /* app-stim-scores.json */; };
+		0E344D8B9D75EFB675DE3FAE /* IslandCompactLeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2244DBB058C937527A1A40 /* IslandCompactLeading.swift */; };
 		11F340E4A026244A22B2A181 /* StaticStimScoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58494D569872CE98DC9363E7 /* StaticStimScoreProvider.swift */; };
+		1F7541CA9826B7333684B52B /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C4C8E9AD6DBC7C78C58D2 /* SessionManager.swift */; };
+		30194966B3225100724A1A6C /* ArousalGauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9D4DD090BCFDB31E841953 /* ArousalGauge.swift */; };
+		31754104915D178EE139C668 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C24C7DAFFF28CD205FD638 /* HomeScreen.swift */; };
 		362B4DC49413B3D3DA3646EA /* BiometricReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B4ECDAF60B2D48C29553F /* BiometricReading.swift */; };
+		38244759A0F72A132911D1A7 /* RampDownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3814708BBD6AB66A39642E3 /* RampDownViewModel.swift */; };
 		395C423080FEA930E26271A0 /* SimulatedAppUsageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC4CF188867F73E1DD5EA2 /* SimulatedAppUsageProvider.swift */; };
 		399344079C8195356A3FFBA8 /* RampDownSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44134A9F9CD4F011EE247DDB /* RampDownSuggestion.swift */; };
 		3FC04869ABD615A088306EDF /* ContextDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BF4B8AB23DB21AA60C97E2 /* ContextDataProvider.swift */; };
+		401D486BA138DAA2ED9A6D6E /* IslandPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203341F8AC37DAB99372F907 /* IslandPreview.swift */; };
 		406E436ABFB12A72FFEDA4CA /* PersonalProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D42969C12C623F4792820 /* PersonalProfile.swift */; };
+		45134A79B4AA871ECC9E0EBE /* IslandExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E41B6A9B21E7A8B2E23D6 /* IslandExpandedView.swift */; };
+		498348CEB098879F382BE60B /* RampDownScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C4DD486A929E3BC85F573 /* RampDownScreen.swift */; };
 		4BBA48A892273B63F9DD5724 /* RealContextProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011A40039D852F915BFA3EDB /* RealContextProvider.swift */; };
 		505E4BB383E3D44B6DD24BE8 /* SimulatedBiometricProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7447A7B7F25A396610BD1C /* SimulatedBiometricProvider.swift */; };
+		57704026A14CB8C3049463E3 /* StimulationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B248AA969F7904813E6A75 /* StimulationEngine.swift */; };
+		584245B28709D3D2174B32EB /* ShieldOverlayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC4018A5DAE454329379E0 /* ShieldOverlayScreen.swift */; };
+		5EA74F0CA141F987703565B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23490AA74DA0B36F2962C0 /* ContentView.swift */; };
+		607A41F0968FBF3858A9EC00 /* RampDownEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD240EA8CD6F7BF7D3AB219 /* RampDownEngine.swift */; };
 		63DB4F64B984E3A72815C77C /* BiometricDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030A488BA0AEC4944768240E /* BiometricDataProvider.swift */; };
 		6AFF4197971B1799D61F987F /* StimScoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4023439EA35EB7E67E1E3C0F /* StimScoreProvider.swift */; };
 		6CEF4820B6AE007573E3C17E /* Double+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35840FCA9EB480DA15458F9 /* Double+Rounding.swift */; };
 		6F7F4755BE96D30A43F4D33B /* AppUsageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F804AA89339E31372561E23 /* AppUsageDataProvider.swift */; };
+		7DDC4083AE7352479CB40382 /* InterventionScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A44F47A5093F24DFA4C6F0 /* InterventionScheduler.swift */; };
+		80D44E9DBA8BBEDEDCDB5450 /* StimScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211A4C66A2AE530F84379759 /* StimScoreBadge.swift */; };
 		92F24CA3B643545BC3F7778A /* evening-timeline.json in Resources */ = {isa = PBXBuildFile; fileRef = B90246EA8FE7D9B149CD8644 /* evening-timeline.json */; };
+		A0A44B04AEC0512BFE016184 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22434B609E4956AA9BF5FC13 /* HomeViewModel.swift */; };
 		B2DB44FA9B1A326A339BB51F /* MismatchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1514160B1CF36755E539A17 /* MismatchEvent.swift */; };
 		B78C476E9DFC6F7663A5C3F2 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE14E86B81903D97ADA0FC8 /* Color+Hex.swift */; };
+		BF8240EC84E450B3D425C30E /* PersonalProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1D43F9AFB7351B2D1E31EA /* PersonalProfileBuilder.swift */; };
 		C3614F2D9C86EC356A31DABA /* AgentCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E34D72B01CCC57B4569D5E /* AgentCharacter.swift */; };
 		C8144293A2A3414268E104D8 /* AppUsageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48604934BD92FC54E8D376E9 /* AppUsageEvent.swift */; };
+		CB8743D3AA1E113441AE2523 /* MismatchDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492D4D3CABFEE3F4ACB45DB9 /* MismatchDetailScreen.swift */; };
+		D1B14F9AACB977ED0D0089AA /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1864011BF0AFEEF25F04722 /* LiveActivityManager.swift */; };
+		D647486E8AECFB26217164FE /* NervRestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE824D629052767C19293E6A /* NervRestApp.swift */; };
+		DF5546ACB90F99DBD647F812 /* MismatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378D4F1CB7C2603DF110A6B1 /* MismatchViewModel.swift */; };
 		E0A04816A24A77CFE4EC6F58 /* ArousalScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369413D802469E21F82AAB5 /* ArousalScore.swift */; };
+		E0AB4243BB156D1AC1D9DF86 /* IslandCompactTrailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9516422EA831B15A6A9107DF /* IslandCompactTrailing.swift */; };
 		E3254762A42EEC94C254B17E /* NervRestTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A5439D870DC01D1EB1A5CD /* NervRestTheme.swift */; };
+		E70A4272A8EDCB158E4F1FB4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D434420BEF3E29706B47B31 /* NotificationManager.swift */; };
 		F7AD48148CA60FAD44B6BF03 /* UserContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA74523A3DEFFD6093A0999 /* UserContext.swift */; };
+		F8874272B24CBBF520D1E3CF /* BiometricCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5374853957FE165557E0BA0 /* BiometricCard.swift */; };
+		F9BB4926BF84B73A53B2FD25 /* IslandMinimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CE4F0F9430F1F13C5627C4 /* IslandMinimal.swift */; };
 		F9C940E7B0E8B48201ED946D /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92704A49B371B14766C71744 /* Date+Formatting.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,29 +76,54 @@
 /* Begin PBXFileReference section */
 		011A40039D852F915BFA3EDB /* RealContextProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealContextProvider.swift; path = NervRest/Data/Simulated/RealContextProvider.swift; sourceTree = SOURCE_ROOT; };
 		030A488BA0AEC4944768240E /* BiometricDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BiometricDataProvider.swift; path = NervRest/Data/Providers/BiometricDataProvider.swift; sourceTree = SOURCE_ROOT; };
+		13CE4F0F9430F1F13C5627C4 /* IslandMinimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IslandMinimal.swift; path = NervRest/UI/Components/IslandMinimal.swift; sourceTree = SOURCE_ROOT; };
+		17A44F47A5093F24DFA4C6F0 /* InterventionScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InterventionScheduler.swift; path = NervRest/Logic/Engines/InterventionScheduler.swift; sourceTree = SOURCE_ROOT; };
+		1D434420BEF3E29706B47B31 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = NervRest/Logic/Managers/NotificationManager.swift; sourceTree = SOURCE_ROOT; };
 		1E7447A7B7F25A396610BD1C /* SimulatedBiometricProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SimulatedBiometricProvider.swift; path = NervRest/Data/Simulated/SimulatedBiometricProvider.swift; sourceTree = SOURCE_ROOT; };
 		1FE596E52F784497006C838A /* NervRest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NervRest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE596F22F784499006C838A /* NervRestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NervRestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE596FC2F784499006C838A /* NervRestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NervRestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		203341F8AC37DAB99372F907 /* IslandPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IslandPreview.swift; path = NervRest/UI/Components/IslandPreview.swift; sourceTree = SOURCE_ROOT; };
+		211A4C66A2AE530F84379759 /* StimScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StimScoreBadge.swift; path = NervRest/UI/Components/StimScoreBadge.swift; sourceTree = SOURCE_ROOT; };
+		22434B609E4956AA9BF5FC13 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewModel.swift; path = NervRest/Logic/ViewModels/HomeViewModel.swift; sourceTree = SOURCE_ROOT; };
+		2CD240EA8CD6F7BF7D3AB219 /* RampDownEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RampDownEngine.swift; path = NervRest/Logic/Engines/RampDownEngine.swift; sourceTree = SOURCE_ROOT; };
 		33FB419EA1E9C449A1938684 /* app-stim-scores.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "app-stim-scores.json"; path = "NervRest/Resources/app-stim-scores.json"; sourceTree = SOURCE_ROOT; };
+		378D4F1CB7C2603DF110A6B1 /* MismatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MismatchViewModel.swift; path = NervRest/Logic/ViewModels/MismatchViewModel.swift; sourceTree = SOURCE_ROOT; };
 		3EA74523A3DEFFD6093A0999 /* UserContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserContext.swift; path = NervRest/Data/Models/UserContext.swift; sourceTree = SOURCE_ROOT; };
 		3F804AA89339E31372561E23 /* AppUsageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppUsageDataProvider.swift; path = NervRest/Data/Providers/AppUsageDataProvider.swift; sourceTree = SOURCE_ROOT; };
 		4023439EA35EB7E67E1E3C0F /* StimScoreProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StimScoreProvider.swift; path = NervRest/Data/Providers/StimScoreProvider.swift; sourceTree = SOURCE_ROOT; };
+		43C24C7DAFFF28CD205FD638 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeScreen.swift; path = NervRest/UI/Screens/HomeScreen.swift; sourceTree = SOURCE_ROOT; };
 		44134A9F9CD4F011EE247DDB /* RampDownSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RampDownSuggestion.swift; path = NervRest/Data/Models/RampDownSuggestion.swift; sourceTree = SOURCE_ROOT; };
 		48604934BD92FC54E8D376E9 /* AppUsageEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppUsageEvent.swift; path = NervRest/Data/Models/AppUsageEvent.swift; sourceTree = SOURCE_ROOT; };
+		492D4D3CABFEE3F4ACB45DB9 /* MismatchDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MismatchDetailScreen.swift; path = NervRest/UI/Screens/MismatchDetailScreen.swift; sourceTree = SOURCE_ROOT; };
+		4F23490AA74DA0B36F2962C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = NervRest/ContentView.swift; sourceTree = SOURCE_ROOT; };
 		58494D569872CE98DC9363E7 /* StaticStimScoreProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StaticStimScoreProvider.swift; path = NervRest/Data/Simulated/StaticStimScoreProvider.swift; sourceTree = SOURCE_ROOT; };
+		5F0C4DD486A929E3BC85F573 /* RampDownScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RampDownScreen.swift; path = NervRest/UI/Screens/RampDownScreen.swift; sourceTree = SOURCE_ROOT; };
 		60E34D72B01CCC57B4569D5E /* AgentCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AgentCharacter.swift; path = NervRest/UI/Components/AgentCharacter.swift; sourceTree = SOURCE_ROOT; };
+		6C1D43F9AFB7351B2D1E31EA /* PersonalProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalProfileBuilder.swift; path = NervRest/Logic/Engines/PersonalProfileBuilder.swift; sourceTree = SOURCE_ROOT; };
+		73B248AA969F7904813E6A75 /* StimulationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StimulationEngine.swift; path = NervRest/Logic/Engines/StimulationEngine.swift; sourceTree = SOURCE_ROOT; };
+		7D744B89B7247ACA6456F4FF /* MismatchDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MismatchDetector.swift; path = NervRest/Logic/Engines/MismatchDetector.swift; sourceTree = SOURCE_ROOT; };
 		8B8D42969C12C623F4792820 /* PersonalProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalProfile.swift; path = NervRest/Data/Models/PersonalProfile.swift; sourceTree = SOURCE_ROOT; };
 		92704A49B371B14766C71744 /* Date+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+Formatting.swift"; path = "NervRest/Extensions/Date+Formatting.swift"; sourceTree = SOURCE_ROOT; };
+		9516422EA831B15A6A9107DF /* IslandCompactTrailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IslandCompactTrailing.swift; path = NervRest/UI/Components/IslandCompactTrailing.swift; sourceTree = SOURCE_ROOT; };
+		9B0C4C8E9AD6DBC7C78C58D2 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = NervRest/Logic/Managers/SessionManager.swift; sourceTree = SOURCE_ROOT; };
+		A1EC4018A5DAE454329379E0 /* ShieldOverlayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShieldOverlayScreen.swift; path = NervRest/UI/Screens/ShieldOverlayScreen.swift; sourceTree = SOURCE_ROOT; };
+		A3814708BBD6AB66A39642E3 /* RampDownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RampDownViewModel.swift; path = NervRest/Logic/ViewModels/RampDownViewModel.swift; sourceTree = SOURCE_ROOT; };
 		B4BF4B8AB23DB21AA60C97E2 /* ContextDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContextDataProvider.swift; path = NervRest/Data/Providers/ContextDataProvider.swift; sourceTree = SOURCE_ROOT; };
 		B90246EA8FE7D9B149CD8644 /* evening-timeline.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "evening-timeline.json"; path = "NervRest/Resources/evening-timeline.json"; sourceTree = SOURCE_ROOT; };
 		BCE14E86B81903D97ADA0FC8 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Color+Hex.swift"; path = "NervRest/UI/Theme/Color+Hex.swift"; sourceTree = SOURCE_ROOT; };
+		D1864011BF0AFEEF25F04722 /* LiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LiveActivityManager.swift; path = NervRest/Logic/Managers/LiveActivityManager.swift; sourceTree = SOURCE_ROOT; };
+		D5374853957FE165557E0BA0 /* BiometricCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BiometricCard.swift; path = NervRest/UI/Components/BiometricCard.swift; sourceTree = SOURCE_ROOT; };
+		DB2244DBB058C937527A1A40 /* IslandCompactLeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IslandCompactLeading.swift; path = NervRest/UI/Components/IslandCompactLeading.swift; sourceTree = SOURCE_ROOT; };
+		E01E41B6A9B21E7A8B2E23D6 /* IslandExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IslandExpandedView.swift; path = NervRest/UI/Components/IslandExpandedView.swift; sourceTree = SOURCE_ROOT; };
 		E1514160B1CF36755E539A17 /* MismatchEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MismatchEvent.swift; path = NervRest/Data/Models/MismatchEvent.swift; sourceTree = SOURCE_ROOT; };
 		E35840FCA9EB480DA15458F9 /* Double+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Double+Rounding.swift"; path = "NervRest/Extensions/Double+Rounding.swift"; sourceTree = SOURCE_ROOT; };
 		E7A5439D870DC01D1EB1A5CD /* NervRestTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NervRestTheme.swift; path = NervRest/UI/Theme/NervRestTheme.swift; sourceTree = SOURCE_ROOT; };
 		E98B4ECDAF60B2D48C29553F /* BiometricReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BiometricReading.swift; path = NervRest/Data/Models/BiometricReading.swift; sourceTree = SOURCE_ROOT; };
 		ECCC4CF188867F73E1DD5EA2 /* SimulatedAppUsageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SimulatedAppUsageProvider.swift; path = NervRest/Data/Simulated/SimulatedAppUsageProvider.swift; sourceTree = SOURCE_ROOT; };
 		F369413D802469E21F82AAB5 /* ArousalScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArousalScore.swift; path = NervRest/Data/Models/ArousalScore.swift; sourceTree = SOURCE_ROOT; };
+		FC9D4DD090BCFDB31E841953 /* ArousalGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArousalGauge.swift; path = NervRest/UI/Components/ArousalGauge.swift; sourceTree = SOURCE_ROOT; };
+		FE824D629052767C19293E6A /* NervRestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NervRestApp.swift; path = NervRest/NervRestApp.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -136,6 +186,31 @@
 				E1514160B1CF36755E539A17 /* MismatchEvent.swift */,
 				33FB419EA1E9C449A1938684 /* app-stim-scores.json */,
 				B90246EA8FE7D9B149CD8644 /* evening-timeline.json */,
+				4F23490AA74DA0B36F2962C0 /* ContentView.swift */,
+				17A44F47A5093F24DFA4C6F0 /* InterventionScheduler.swift */,
+				7D744B89B7247ACA6456F4FF /* MismatchDetector.swift */,
+				6C1D43F9AFB7351B2D1E31EA /* PersonalProfileBuilder.swift */,
+				2CD240EA8CD6F7BF7D3AB219 /* RampDownEngine.swift */,
+				73B248AA969F7904813E6A75 /* StimulationEngine.swift */,
+				D1864011BF0AFEEF25F04722 /* LiveActivityManager.swift */,
+				1D434420BEF3E29706B47B31 /* NotificationManager.swift */,
+				9B0C4C8E9AD6DBC7C78C58D2 /* SessionManager.swift */,
+				22434B609E4956AA9BF5FC13 /* HomeViewModel.swift */,
+				378D4F1CB7C2603DF110A6B1 /* MismatchViewModel.swift */,
+				A3814708BBD6AB66A39642E3 /* RampDownViewModel.swift */,
+				FE824D629052767C19293E6A /* NervRestApp.swift */,
+				FC9D4DD090BCFDB31E841953 /* ArousalGauge.swift */,
+				D5374853957FE165557E0BA0 /* BiometricCard.swift */,
+				DB2244DBB058C937527A1A40 /* IslandCompactLeading.swift */,
+				9516422EA831B15A6A9107DF /* IslandCompactTrailing.swift */,
+				E01E41B6A9B21E7A8B2E23D6 /* IslandExpandedView.swift */,
+				13CE4F0F9430F1F13C5627C4 /* IslandMinimal.swift */,
+				203341F8AC37DAB99372F907 /* IslandPreview.swift */,
+				211A4C66A2AE530F84379759 /* StimScoreBadge.swift */,
+				43C24C7DAFFF28CD205FD638 /* HomeScreen.swift */,
+				492D4D3CABFEE3F4ACB45DB9 /* MismatchDetailScreen.swift */,
+				5F0C4DD486A929E3BC85F573 /* RampDownScreen.swift */,
+				A1EC4018A5DAE454329379E0 /* ShieldOverlayScreen.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -315,6 +390,31 @@
 				406E436ABFB12A72FFEDA4CA /* PersonalProfile.swift in Sources */,
 				E0A04816A24A77CFE4EC6F58 /* ArousalScore.swift in Sources */,
 				B2DB44FA9B1A326A339BB51F /* MismatchEvent.swift in Sources */,
+				5EA74F0CA141F987703565B6 /* ContentView.swift in Sources */,
+				7DDC4083AE7352479CB40382 /* InterventionScheduler.swift in Sources */,
+				09534053838617BCDE79B6E2 /* MismatchDetector.swift in Sources */,
+				BF8240EC84E450B3D425C30E /* PersonalProfileBuilder.swift in Sources */,
+				607A41F0968FBF3858A9EC00 /* RampDownEngine.swift in Sources */,
+				57704026A14CB8C3049463E3 /* StimulationEngine.swift in Sources */,
+				D1B14F9AACB977ED0D0089AA /* LiveActivityManager.swift in Sources */,
+				E70A4272A8EDCB158E4F1FB4 /* NotificationManager.swift in Sources */,
+				1F7541CA9826B7333684B52B /* SessionManager.swift in Sources */,
+				A0A44B04AEC0512BFE016184 /* HomeViewModel.swift in Sources */,
+				DF5546ACB90F99DBD647F812 /* MismatchViewModel.swift in Sources */,
+				38244759A0F72A132911D1A7 /* RampDownViewModel.swift in Sources */,
+				D647486E8AECFB26217164FE /* NervRestApp.swift in Sources */,
+				30194966B3225100724A1A6C /* ArousalGauge.swift in Sources */,
+				F8874272B24CBBF520D1E3CF /* BiometricCard.swift in Sources */,
+				0E344D8B9D75EFB675DE3FAE /* IslandCompactLeading.swift in Sources */,
+				E0AB4243BB156D1AC1D9DF86 /* IslandCompactTrailing.swift in Sources */,
+				45134A79B4AA871ECC9E0EBE /* IslandExpandedView.swift in Sources */,
+				F9BB4926BF84B73A53B2FD25 /* IslandMinimal.swift in Sources */,
+				401D486BA138DAA2ED9A6D6E /* IslandPreview.swift in Sources */,
+				80D44E9DBA8BBEDEDCDB5450 /* StimScoreBadge.swift in Sources */,
+				31754104915D178EE139C668 /* HomeScreen.swift in Sources */,
+				CB8743D3AA1E113441AE2523 /* MismatchDetailScreen.swift in Sources */,
+				498348CEB098879F382BE60B /* RampDownScreen.swift in Sources */,
+				584245B28709D3D2174B32EB /* ShieldOverlayScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

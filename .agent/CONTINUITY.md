@@ -13,6 +13,8 @@
 ## [PROGRESS]
 
 - **2026-03-28T00:00Z** `[CODE]` Project initialized. Spec document placed in repo root. Ready to begin Xcode project creation.
+- **2026-03-28T13:33Z** `[CODE]` Task 5: Created all 5 core engine files in `NervRest/NervRest/Logic/Engines/`: StimulationEngine, MismatchDetector, RampDownEngine, InterventionScheduler, PersonalProfileBuilder. All follow spec Section 6 exactly. InterventionScheduler uses protocol stubs (NotificationManaging, LiveActivityManaging) for decoupling from not-yet-implemented concrete types.
+- **2026-03-28T14:00Z** `[CODE]` Created 5 Dynamic Island / Live Activity view files in `NervRest/NervRest/UI/Components/`: IslandCompactLeading (mood emoji), IslandCompactTrailing (score + color), IslandMinimal (colored dot), IslandExpandedView (full card with biometrics, gauge, action button), IslandPreview (in-app simulator). All follow spec Section 7. Colors inlined via `Color(hex:)` for widget-extension portability.
 
 ## [DISCOVERIES]
 
