@@ -26,6 +26,7 @@ class AppContainer: ObservableObject {
     let homeViewModel: HomeViewModel
     let mismatchViewModel: MismatchViewModel
     let rampDownViewModel: RampDownViewModel
+    let lunaChatViewModel: LunaChatViewModel
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -97,6 +98,8 @@ class AppContainer: ObservableObject {
 
         let rampDownVM = RampDownViewModel()
         self.rampDownViewModel = rampDownVM
+
+        self.lunaChatViewModel = LunaChatViewModel()
 
         rampDownVM.onSuggestionSelected = { [weak scheduler] in
             scheduler?.userChoseRampDown()

@@ -56,6 +56,15 @@ struct NervRestApp: App {
                                 onShowAlternatives: { router.navigate(to: .rampDown) },
                                 onFiveMoreMinutes: { router.popToRoot() }
                             )
+                        case .demoFlow:
+                            DemoFlowScreen(
+                                homeViewModel: container.homeViewModel,
+                                rampDownViewModel: container.rampDownViewModel,
+                                alarmTime: container.contextProvider.currentContext.alarmTime?.hourMinute ?? "7:00 AM"
+                            )
+                            .navigationBarHidden(true)
+                        case .lunaChat:
+                            LunaChatScreen(viewModel: container.lunaChatViewModel)
                         }
                     }
             }

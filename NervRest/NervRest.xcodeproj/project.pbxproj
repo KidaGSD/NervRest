@@ -22,6 +22,8 @@
 		401D486BA138DAA2ED9A6D6E /* IslandPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203341F8AC37DAB99372F907 /* IslandPreview.swift */; };
 		406E436ABFB12A72FFEDA4CA /* PersonalProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D42969C12C623F4792820 /* PersonalProfile.swift */; };
 		45134A79B4AA871ECC9E0EBE /* IslandExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E41B6A9B21E7A8B2E23D6 /* IslandExpandedView.swift */; };
+		46CB435B922E74F5ABFED4F2 /* LunaChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C14C949219938EE5C989DA /* LunaChatViewModel.swift */; };
+		48F948FFA542D805B6D00698 /* TikTokMockScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D4D21B6D1EE6DD6576F87 /* TikTokMockScreen.swift */; };
 		498348CEB098879F382BE60B /* RampDownScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C4DD486A929E3BC85F573 /* RampDownScreen.swift */; };
 		4BBA48A892273B63F9DD5724 /* RealContextProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011A40039D852F915BFA3EDB /* RealContextProvider.swift */; };
 		505E4BB383E3D44B6DD24BE8 /* SimulatedBiometricProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7447A7B7F25A396610BD1C /* SimulatedBiometricProvider.swift */; };
@@ -38,13 +40,16 @@
 		92F24CA3B643545BC3F7778A /* evening-timeline.json in Resources */ = {isa = PBXBuildFile; fileRef = B90246EA8FE7D9B149CD8644 /* evening-timeline.json */; };
 		A0A44B04AEC0512BFE016184 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22434B609E4956AA9BF5FC13 /* HomeViewModel.swift */; };
 		B2DB44FA9B1A326A339BB51F /* MismatchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1514160B1CF36755E539A17 /* MismatchEvent.swift */; };
+		B76B4F14A847E76C8008D627 /* ShieldTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04D43D8A70E69BCF703BEEB /* ShieldTransitionView.swift */; };
 		B78C476E9DFC6F7663A5C3F2 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE14E86B81903D97ADA0FC8 /* Color+Hex.swift */; };
+		BA664B438DF1F219C5062458 /* LunaChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F4243AC3EFD3DE62342CB /* LunaChatScreen.swift */; };
 		BF8240EC84E450B3D425C30E /* PersonalProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1D43F9AFB7351B2D1E31EA /* PersonalProfileBuilder.swift */; };
 		C3614F2D9C86EC356A31DABA /* AgentCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E34D72B01CCC57B4569D5E /* AgentCharacter.swift */; };
 		C67241EEB87B849B78287C9F /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB746F2AA61EBB4E0F27666 /* AppRouter.swift */; };
 		C8144293A2A3414268E104D8 /* AppUsageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48604934BD92FC54E8D376E9 /* AppUsageEvent.swift */; };
 		CB8743D3AA1E113441AE2523 /* MismatchDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492D4D3CABFEE3F4ACB45DB9 /* MismatchDetailScreen.swift */; };
 		D1B14F9AACB977ED0D0089AA /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1864011BF0AFEEF25F04722 /* LiveActivityManager.swift */; };
+		D2C54937819BC3629C1226C6 /* VideoFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837E4C4EB5A392FB1339A9F7 /* VideoFeedView.swift */; };
 		D647486E8AECFB26217164FE /* NervRestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE824D629052767C19293E6A /* NervRestApp.swift */; };
 		DF5546ACB90F99DBD647F812 /* MismatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378D4F1CB7C2603DF110A6B1 /* MismatchViewModel.swift */; };
 		E0A04816A24A77CFE4EC6F58 /* ArousalScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369413D802469E21F82AAB5 /* ArousalScore.swift */; };
@@ -105,13 +110,17 @@
 		6C1D43F9AFB7351B2D1E31EA /* PersonalProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalProfileBuilder.swift; path = NervRest/Logic/Engines/PersonalProfileBuilder.swift; sourceTree = SOURCE_ROOT; };
 		73B248AA969F7904813E6A75 /* StimulationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StimulationEngine.swift; path = NervRest/Logic/Engines/StimulationEngine.swift; sourceTree = SOURCE_ROOT; };
 		7D744B89B7247ACA6456F4FF /* MismatchDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MismatchDetector.swift; path = NervRest/Logic/Engines/MismatchDetector.swift; sourceTree = SOURCE_ROOT; };
+		837E4C4EB5A392FB1339A9F7 /* VideoFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoFeedView.swift; path = NervRest/UI/TikTokMock/VideoFeedView.swift; sourceTree = SOURCE_ROOT; };
+		83C14C949219938EE5C989DA /* LunaChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LunaChatViewModel.swift; path = NervRest/Logic/ViewModels/LunaChatViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8B8D42969C12C623F4792820 /* PersonalProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalProfile.swift; path = NervRest/Data/Models/PersonalProfile.swift; sourceTree = SOURCE_ROOT; };
 		92704A49B371B14766C71744 /* Date+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+Formatting.swift"; path = "NervRest/Extensions/Date+Formatting.swift"; sourceTree = SOURCE_ROOT; };
 		9516422EA831B15A6A9107DF /* IslandCompactTrailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IslandCompactTrailing.swift; path = NervRest/UI/Components/IslandCompactTrailing.swift; sourceTree = SOURCE_ROOT; };
+		9A2F4243AC3EFD3DE62342CB /* LunaChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LunaChatScreen.swift; path = NervRest/UI/Screens/LunaChatScreen.swift; sourceTree = SOURCE_ROOT; };
 		9B0C4C8E9AD6DBC7C78C58D2 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = NervRest/Logic/Managers/SessionManager.swift; sourceTree = SOURCE_ROOT; };
 		A1EC4018A5DAE454329379E0 /* ShieldOverlayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShieldOverlayScreen.swift; path = NervRest/UI/Screens/ShieldOverlayScreen.swift; sourceTree = SOURCE_ROOT; };
 		A3814708BBD6AB66A39642E3 /* RampDownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RampDownViewModel.swift; path = NervRest/Logic/ViewModels/RampDownViewModel.swift; sourceTree = SOURCE_ROOT; };
 		B4BF4B8AB23DB21AA60C97E2 /* ContextDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContextDataProvider.swift; path = NervRest/Data/Providers/ContextDataProvider.swift; sourceTree = SOURCE_ROOT; };
+		B85D4D21B6D1EE6DD6576F87 /* TikTokMockScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TikTokMockScreen.swift; path = NervRest/UI/Screens/TikTokMockScreen.swift; sourceTree = SOURCE_ROOT; };
 		B90246EA8FE7D9B149CD8644 /* evening-timeline.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "evening-timeline.json"; path = "NervRest/Resources/evening-timeline.json"; sourceTree = SOURCE_ROOT; };
 		BCE14E86B81903D97ADA0FC8 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Color+Hex.swift"; path = "NervRest/UI/Theme/Color+Hex.swift"; sourceTree = SOURCE_ROOT; };
 		D1864011BF0AFEEF25F04722 /* LiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LiveActivityManager.swift; path = NervRest/Logic/Managers/LiveActivityManager.swift; sourceTree = SOURCE_ROOT; };
@@ -123,15 +132,28 @@
 		E7A5439D870DC01D1EB1A5CD /* NervRestTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NervRestTheme.swift; path = NervRest/UI/Theme/NervRestTheme.swift; sourceTree = SOURCE_ROOT; };
 		E98B4ECDAF60B2D48C29553F /* BiometricReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BiometricReading.swift; path = NervRest/Data/Models/BiometricReading.swift; sourceTree = SOURCE_ROOT; };
 		ECCC4CF188867F73E1DD5EA2 /* SimulatedAppUsageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SimulatedAppUsageProvider.swift; path = NervRest/Data/Simulated/SimulatedAppUsageProvider.swift; sourceTree = SOURCE_ROOT; };
+		F04D43D8A70E69BCF703BEEB /* ShieldTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShieldTransitionView.swift; path = NervRest/UI/Screens/ShieldTransitionView.swift; sourceTree = SOURCE_ROOT; };
 		F369413D802469E21F82AAB5 /* ArousalScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArousalScore.swift; path = NervRest/Data/Models/ArousalScore.swift; sourceTree = SOURCE_ROOT; };
 		FC9D4DD090BCFDB31E841953 /* ArousalGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArousalGauge.swift; path = NervRest/UI/Components/ArousalGauge.swift; sourceTree = SOURCE_ROOT; };
 		FE824D629052767C19293E6A /* NervRestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NervRestApp.swift; path = NervRest/NervRestApp.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		1FE596E72F784497006C838A /* NervRest */ = {isa = PBXFileSystemSynchronizedRootGroup; path = NervRest; sourceTree = "<group>"; };
-		1FE596F52F784499006C838A /* NervRestTests */ = {isa = PBXFileSystemSynchronizedRootGroup; path = NervRestTests; sourceTree = "<group>"; };
-		1FE596FF2F784499006C838A /* NervRestUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; path = NervRestUITests; sourceTree = "<group>"; };
+		1FE596E72F784497006C838A /* NervRest */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NervRest;
+			sourceTree = "<group>";
+		};
+		1FE596F52F784499006C838A /* NervRestTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NervRestTests;
+			sourceTree = "<group>";
+		};
+		1FE596FF2F784499006C838A /* NervRestUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NervRestUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +229,11 @@
 				A1EC4018A5DAE454329379E0 /* ShieldOverlayScreen.swift */,
 				1F4743469AFDC82753FBBBAF /* AppContainer.swift */,
 				1EB746F2AA61EBB4E0F27666 /* AppRouter.swift */,
+				83C14C949219938EE5C989DA /* LunaChatViewModel.swift */,
+				9A2F4243AC3EFD3DE62342CB /* LunaChatScreen.swift */,
+				F04D43D8A70E69BCF703BEEB /* ShieldTransitionView.swift */,
+				B85D4D21B6D1EE6DD6576F87 /* TikTokMockScreen.swift */,
+				837E4C4EB5A392FB1339A9F7 /* VideoFeedView.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -411,6 +438,11 @@
 				584245B28709D3D2174B32EB /* ShieldOverlayScreen.swift in Sources */,
 				721346CE8E80D3EB541FEAD4 /* AppContainer.swift in Sources */,
 				C67241EEB87B849B78287C9F /* AppRouter.swift in Sources */,
+				46CB435B922E74F5ABFED4F2 /* LunaChatViewModel.swift in Sources */,
+				BA664B438DF1F219C5062458 /* LunaChatScreen.swift in Sources */,
+				B76B4F14A847E76C8008D627 /* ShieldTransitionView.swift in Sources */,
+				48F948FFA542D805B6D00698 /* TikTokMockScreen.swift in Sources */,
+				D2C54937819BC3629C1226C6 /* VideoFeedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

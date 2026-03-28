@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    @EnvironmentObject var router: AppRouter
     @ObservedObject var viewModel: HomeViewModel
 
     init(viewModel: HomeViewModel = HomeViewModel()) {
@@ -89,7 +90,39 @@ struct HomeScreen: View {
                     sessionButton
                         .padding(.horizontal, NervRestTheme.Spacing.md)
                         .padding(.top, NervRestTheme.SectionSpacing.breathe)
-                        .padding(.bottom, NervRestTheme.Spacing.xxl)
+
+                    // 7. Launch Demo button
+                    Button(action: {
+                        viewModel.startMonitoring()
+                        router.navigate(to: .demoFlow)
+                    }) {
+                        HStack {
+                            Image(systemName: "play.fill")
+                            Text("Launch Demo")
+                        }
+                        .font(NervRestTheme.Fonts.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, NervRestTheme.Spacing.md)
+                        .background(NervRestTheme.Arousal.elevated)
+                        .cornerRadius(NervRestTheme.Radius.lg)
+                    }
+                    .padding(.horizontal, NervRestTheme.Spacing.md)
+                    .padding(.top, NervRestTheme.Spacing.md)
+
+                    // 8. Chat with Luna button
+                    Button(action: {
+                        router.navigate(to: .lunaChat)
+                    }) {
+                        HStack {
+                            Image(systemName: "message.fill")
+                            Text("Chat with Luna")
+                        }
+                        .font(NervRestTheme.Fonts.body)
+                        .foregroundColor(NervRestTheme.Text.secondary)
+                    }
+                    .padding(.top, NervRestTheme.Spacing.sm)
+                    .padding(.bottom, NervRestTheme.Spacing.xxl)
                 }
             }
         }
@@ -180,6 +213,7 @@ struct HomeScreen: View {
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
         HomeScreen(viewModel: HomeViewModel())
+            .environmentObject(AppRouter())
     }
 }
 #endif

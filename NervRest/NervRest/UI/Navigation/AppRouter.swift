@@ -6,6 +6,8 @@ enum AppRoute: Hashable {
     case mismatchDetail
     case rampDown
     case shieldOverlay
+    case demoFlow
+    case lunaChat
 }
 
 class AppRouter: ObservableObject {
