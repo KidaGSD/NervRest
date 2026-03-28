@@ -7,19 +7,22 @@ struct IslandCompactLeading: View {
     let agentMood: String
 
     var body: some View {
-        Text(emoji)
-            .font(.system(size: 20))
+        Image(moonImageName)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 20, height: 20)
+            .clipShape(Circle())
     }
 
-    // MARK: - Mood → Emoji Mapping
+    // MARK: - Mood → Moon Phase Mapping
 
-    private var emoji: String {
+    private var moonImageName: String {
         switch agentMood {
-        case "happy":     return "\u{1F60A}" // 😊
-        case "concerned": return "\u{1F610}" // 😐
-        case "worried":   return "\u{1F61F}" // 😟
-        case "relieved":  return "\u{1F60C}" // 😌
-        default:          return "\u{1FAE5}" // 🫥
+        case "happy": return "moon_full"
+        case "concerned": return "moon_last_quarter"
+        case "worried": return "moon_waxing_crescent"
+        case "relieved": return "moon_waning_gibbous"
+        default: return "moon_waning_crescent"
         }
     }
 }

@@ -26,12 +26,15 @@ struct IslandExpandedView: View {
 
     // MARK: - Top Row
 
-    /// Agent emoji + status message + alarm countdown + circular arousal gauge.
+    /// Agent moon phase + status message + alarm countdown + circular arousal gauge.
     private var topRow: some View {
         HStack {
-            // Agent character (placeholder emoji — swap with designer asset)
-            Text(agentEmoji)
-                .font(.system(size: 28))
+            // Agent character — moon phase SVG from asset catalog
+            Image(moonImageName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 28, height: 28)
+                .clipShape(Circle())
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(statusMessage)
@@ -114,13 +117,13 @@ struct IslandExpandedView: View {
 
     // MARK: - Helpers
 
-    private var agentEmoji: String {
+    private var moonImageName: String {
         switch agentMood {
-        case "happy":     return "\u{1F60A}" // 😊
-        case "concerned": return "\u{1F610}" // 😐
-        case "worried":   return "\u{1F61F}" // 😟
-        case "relieved":  return "\u{1F60C}" // 😌
-        default:          return "\u{1FAE5}" // 🫥
+        case "happy": return "moon_full"
+        case "concerned": return "moon_last_quarter"
+        case "worried": return "moon_waxing_crescent"
+        case "relieved": return "moon_waning_gibbous"
+        default: return "moon_waning_crescent"
         }
     }
 

@@ -6,31 +6,46 @@ struct AgentCharacter: View {
 
     var body: some View {
         ZStack {
+            // Warm glow behind moon
             Circle()
-                .fill(NervRestTheme.Arousal.color(for: moodLevel).opacity(0.15))
-                .frame(width: size * 1.2, height: size * 1.2)
-            Text(emoji)
-                .font(.system(size: size * 0.7))
+                .fill(
+                    RadialGradient(
+                        gradient: Gradient(colors: [
+                            glowColor.opacity(0.2),
+                            Color.clear
+                        ]),
+                        center: .center,
+                        startRadius: size * 0.2,
+                        endRadius: size * 0.7
+                    )
+                )
+                .frame(width: size * 1.4, height: size * 1.4)
+
+            Image(moonImageName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: size, height: size)
+                .clipShape(Circle())
         }
     }
 
-    private var emoji: String {
+    private var moonImageName: String {
         switch mood {
-        case "happy": return "\u{1F60A}"
-        case "concerned": return "\u{1F610}"
-        case "worried": return "\u{1F61F}"
-        case "relieved": return "\u{1F60C}"
-        default: return "\u{1FAE5}"
+        case "happy": return "moon_full"
+        case "concerned": return "moon_last_quarter"
+        case "worried": return "moon_waxing_crescent"
+        case "relieved": return "moon_waning_gibbous"
+        default: return "moon_waning_crescent"
         }
     }
 
-    private var moodLevel: ArousalLevel {
+    private var glowColor: Color {
         switch mood {
-        case "happy": return .calm
-        case "concerned": return .moderate
-        case "worried": return .high
-        case "relieved": return .calm
-        default: return .moderate
+        case "happy": return NervRestTheme.Accent.glow
+        case "concerned": return NervRestTheme.Arousal.elevated
+        case "worried": return NervRestTheme.Arousal.high
+        case "relieved": return NervRestTheme.Accent.glow
+        default: return NervRestTheme.Text.secondary
         }
     }
 }
