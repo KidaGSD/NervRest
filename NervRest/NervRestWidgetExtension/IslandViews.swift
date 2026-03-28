@@ -30,18 +30,18 @@ struct IslandCompactTrailing: View {
     let arousalScore: Double
 
     var body: some View {
-        Text(String(format: "%.1f", arousalScore))
+        Text(String(format: "%.0f", arousalScore))
             .font(.system(size: 14, weight: .bold, design: .rounded))
             .foregroundColor(arousalColor)
     }
 
     private var arousalColor: Color {
         switch arousalScore {
-        case ..<3:   return Color(hex: "#402959")
-        case 3..<5:  return Color(hex: "#52312F")
-        case 5..<7:  return Color(hex: "#D35200")
-        case 7..<9:  return Color(hex: "#842B00")
-        default:     return Color(hex: "#E18050")
+        case ..<30:   return Color(hex: "#402959")
+        case 30..<50: return Color(hex: "#52312F")
+        case 50..<70: return Color(hex: "#D35200")
+        case 70..<90: return Color(hex: "#842B00")
+        default:      return Color(hex: "#E18050")
         }
     }
 }
@@ -59,11 +59,11 @@ struct IslandMinimal: View {
 
     private var arousalColor: Color {
         switch arousalScore {
-        case ..<3:   return Color(hex: "#402959")
-        case 3..<5:  return Color(hex: "#52312F")
-        case 5..<7:  return Color(hex: "#D35200")
-        case 7..<9:  return Color(hex: "#842B00")
-        default:     return Color(hex: "#E18050")
+        case ..<30:   return Color(hex: "#402959")
+        case 30..<50: return Color(hex: "#52312F")
+        case 50..<70: return Color(hex: "#D35200")
+        case 70..<90: return Color(hex: "#842B00")
+        default:      return Color(hex: "#E18050")
         }
     }
 }

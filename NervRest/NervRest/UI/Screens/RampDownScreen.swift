@@ -29,7 +29,18 @@ struct RampDownScreen: View {
             .padding(.top, NervRestTheme.Spacing.xl)
             .padding(.bottom, NervRestTheme.Spacing.xxl)
         }
-        .background(NervRestTheme.Surface.background.ignoresSafeArea())
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color.black,
+                    Color(hex: "#171120"),
+                    Color(hex: "#402959").opacity(0.8)
+                ]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+        )
         .onAppear {
             viewModel.loadMockSuggestions()
             withAnimation(.easeOut(duration: 0.8)) {
@@ -83,6 +94,7 @@ struct RampDownScreen: View {
 
     private func suggestionCard(suggestion: RampDownSuggestion, index: Int) -> some View {
         Button {
+            viewModel.selectSuggestion(suggestion)
             onSuggestionTapped(suggestion)
         } label: {
             HStack(spacing: NervRestTheme.Spacing.md) {

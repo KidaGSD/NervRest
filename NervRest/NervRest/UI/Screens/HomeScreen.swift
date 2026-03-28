@@ -117,8 +117,16 @@ struct HomeScreen: View {
 
     private var backgroundLayer: some View {
         ZStack {
-            NervRestTheme.Surface.background
-                .ignoresSafeArea()
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color.black,
+                    Color(hex: "#171120"),
+                    Color(hex: "#402959").opacity(0.8)
+                ]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
 
             RadialGradient(
                 gradient: Gradient(colors: [
@@ -139,16 +147,6 @@ struct HomeScreen: View {
                 center: UnitPoint(x: 0.5, y: 0.4),
                 startRadius: 30,
                 endRadius: 250
-            )
-            .ignoresSafeArea()
-
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color.clear,
-                    NervRestTheme.Surface.cardBackground.opacity(0.3)
-                ]),
-                startPoint: UnitPoint(x: 0.5, y: 0.6),
-                endPoint: .bottom
             )
             .ignoresSafeArea()
         }

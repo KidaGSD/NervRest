@@ -57,7 +57,7 @@ class StimulationEngine: ObservableObject {
 
         // Combined
         let raw = contentScore * bioModifier * timeMultiplier
-        let capped = min(10.0, max(1.0, raw))
+        let capped = min(100.0, max(0.0, raw * 10.0))
 
         currentScore = ArousalScore(
             total: capped,

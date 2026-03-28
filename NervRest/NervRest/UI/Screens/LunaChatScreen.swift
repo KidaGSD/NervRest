@@ -5,8 +5,17 @@ struct LunaChatScreen: View {
 
     var body: some View {
         ZStack {
-            // Background: deep dusk with subtle radial glow
-            NervRestTheme.Surface.background.ignoresSafeArea()
+            // Background: Dusk gradient with subtle radial glow
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color.black,
+                    Color(hex: "#171120"),
+                    Color(hex: "#402959").opacity(0.8)
+                ]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
 
             RadialGradient(
                 gradient: Gradient(colors: [

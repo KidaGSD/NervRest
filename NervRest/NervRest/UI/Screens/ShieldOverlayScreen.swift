@@ -116,15 +116,12 @@ struct ShieldOverlayScreen: View {
 
     private var cinematicBackground: some View {
         ZStack {
-            // Base: near-black with purple tint
-            Color(hex: "#0A0510")
-
-            // Vertical gradient: subtle dark-blue at top fading to pure black
+            // Dusk gradient background
             LinearGradient(
-                gradient: Gradient(stops: [
-                    .init(color: Color(hex: "#171120").opacity(0.8), location: 0.0),
-                    .init(color: Color(hex: "#0A0510").opacity(1.0), location: 0.4),
-                    .init(color: Color(hex: "#0A0510"), location: 1.0),
+                gradient: Gradient(colors: [
+                    Color.black,
+                    Color(hex: "#171120"),
+                    Color(hex: "#402959").opacity(0.8)
                 ]),
                 startPoint: .top,
                 endPoint: .bottom

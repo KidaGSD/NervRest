@@ -1,7 +1,7 @@
 import Foundation
 
 struct ArousalScore {
-    let total: Double              // 1-10, capped
+    let total: Double              // 0-100, capped
     let noveltyComponent: Double
     let emotionComponent: Double
     let sensoryComponent: Double
@@ -11,10 +11,10 @@ struct ArousalScore {
 
     var level: ArousalLevel {
         switch total {
-        case 0..<3: return .calm
-        case 3..<5: return .moderate
-        case 5..<7: return .elevated
-        case 7..<9: return .high
+        case 0..<30: return .calm
+        case 30..<50: return .moderate
+        case 50..<70: return .elevated
+        case 70..<90: return .high
         default: return .critical
         }
     }

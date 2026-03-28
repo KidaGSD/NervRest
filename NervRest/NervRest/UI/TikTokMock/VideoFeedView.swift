@@ -19,6 +19,7 @@ class PlayerUIView: UIView {
     private var player: AVPlayer?
 
     init(videoName: String) {
+        self.initialVideoName = videoName
         super.init(frame: .zero)
         backgroundColor = .black
 
@@ -50,9 +51,24 @@ class PlayerUIView: UIView {
     }
 
     @objc private func playerDidFinish() {
-        player?.seek(to: .zero)
-        player?.play()
+        // Switch to next video in the playlist
+        currentIndex = (currentIndex + 1) % videoNames.count
+        let nextName = videoNames[currentIndex]
+        if let path = Bundle.main.path(forResource: nextName, ofType: "mp4") {
+            let item = AVPlayerItem(url: URL(fileURLWithPath: path))
+            NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
+            player?.replaceCurrentItem(with: item)
+            NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinish), name: .AVPlayerItemDidPlayToEndTime, object: item)
+            player?.play()
+        } else {
+            player?.seek(to: .zero)
+            player?.play()
+        }
     }
+
+    private var videoNames: [String] { [initialVideoName, "video-1", "video-2"].filter { Bundle.main.path(forResource: $0, ofType: "mp4") != nil } }
+    private var currentIndex = 0
+    private let initialVideoName: String
 
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -65,8 +81,8 @@ class PlayerUIView: UIView {
 struct VideoCarouselWrapper: View {
     var body: some View {
         ZStack {
-            // Single looping video — simple and crash-free
-            LoopingVideoPlayer(videoName: "video-8")
+            // Looping video player — cycles through available videos
+            LoopingVideoPlayer(videoName: "video-1")
                 .ignoresSafeArea()
 
             // TikTok-style UI overlays

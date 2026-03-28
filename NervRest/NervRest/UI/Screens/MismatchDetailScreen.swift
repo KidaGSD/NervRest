@@ -24,7 +24,18 @@ struct MismatchDetailScreen: View {
             .padding(.top, NervRestTheme.Spacing.xl)
             .padding(.bottom, NervRestTheme.Spacing.xxl)
         }
-        .background(NervRestTheme.Surface.background.ignoresSafeArea())
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color.black,
+                    Color(hex: "#171120"),
+                    Color(hex: "#402959").opacity(0.8)
+                ]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+        )
         .onAppear {
             withAnimation(.easeOut(duration: 0.8)) {
                 appearAnimation = true

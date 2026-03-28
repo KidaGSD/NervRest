@@ -24,7 +24,7 @@ struct ArousalGauge: View {
 
     /// Normalized progress [0, 1] for the arc.
     private var targetProgress: Double {
-        min(max(score / 10.0, 0), 1)
+        min(max(score / 100.0, 0), 1)
     }
 
     // MARK: - Body
@@ -79,7 +79,7 @@ struct ArousalGauge: View {
 
             // Center content
             VStack(spacing: NervRestTheme.Spacing.xs) {
-                Text(String(format: "%.1f", score))
+                Text(String(format: "%.0f", score))
                     .font(NervRestTheme.Fonts.score)
                     .foregroundColor(NervRestTheme.Text.primary)
 
@@ -162,7 +162,7 @@ struct ArousalGauge_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             NervRestTheme.Surface.background.ignoresSafeArea()
-            ArousalGauge(score: 6.2, level: .elevated, heartRate: 82, hrv: 48)
+            ArousalGauge(score: 62, level: .elevated, heartRate: 82, hrv: 48)
         }
         .preferredColorScheme(.dark)
     }

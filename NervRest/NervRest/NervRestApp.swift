@@ -49,10 +49,15 @@ struct NervRestApp: App {
                                 onWindDown: { router.navigate(to: .rampDown) }
                             )
                         case .rampDown:
-                            RampDownScreen(viewModel: container.rampDownViewModel)
-                                .onAppear {
-                                    container.rampDownViewModel.loadMockSuggestions()
+                            RampDownScreen(
+                                viewModel: container.rampDownViewModel,
+                                onSuggestionTapped: { _ in
+                                    router.popToRoot()
                                 }
+                            )
+                            .onAppear {
+                                container.rampDownViewModel.loadMockSuggestions()
+                            }
                         case .shieldOverlay:
                             ShieldOverlayScreen(
                                 arousalScore: container.homeViewModel.arousalScore,

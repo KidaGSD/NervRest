@@ -91,7 +91,7 @@ struct LockScreenView: View {
                     .stroke(Color.white.opacity(0.15), lineWidth: 3)
                     .frame(width: 40, height: 40)
                 Circle()
-                    .trim(from: 0, to: min(context.state.arousalScore / 10.0, 1.0))
+                    .trim(from: 0, to: min(context.state.arousalScore / 100.0, 1.0))
                     .stroke(arousalColor(for: context.state.arousalScore), style: StrokeStyle(lineWidth: 3, lineCap: .round))
                     .frame(width: 40, height: 40)
                     .rotationEffect(.degrees(-90))
@@ -127,11 +127,11 @@ struct LockScreenView: View {
 
     private func arousalColor(for score: Double) -> Color {
         switch score {
-        case ..<3:   return Color(hex: "#402959")
-        case 3..<5:  return Color(hex: "#52312F")
-        case 5..<7:  return Color(hex: "#D35200")
-        case 7..<9:  return Color(hex: "#842B00")
-        default:     return Color(hex: "#E18050")
+        case ..<30:   return Color(hex: "#402959")
+        case 30..<50: return Color(hex: "#52312F")
+        case 50..<70: return Color(hex: "#D35200")
+        case 70..<90: return Color(hex: "#842B00")
+        default:      return Color(hex: "#E18050")
         }
     }
 }

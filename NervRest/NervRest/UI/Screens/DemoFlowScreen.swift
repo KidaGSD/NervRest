@@ -97,24 +97,30 @@ struct DemoFlowScreen: View {
 
                     Spacer()
 
-                    Button {
+                    Button("Back to Home") {
                         onExit?()
-                    } label: {
-                        Text("Back to Home")
-                            .font(NervRestTheme.Fonts.headline)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, NervRestTheme.Spacing.md)
-                            .background(
-                                RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
-                                    .fill(NervRestTheme.Accent.secondary)
-                            )
                     }
-                    .padding(.horizontal, NervRestTheme.Spacing.lg)
+                    .font(NervRestTheme.Fonts.headline)
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 32)
+                    .padding(.vertical, 14)
+                    .background(NervRestTheme.Arousal.elevated)
+                    .cornerRadius(NervRestTheme.Radius.lg)
                     .padding(.bottom, NervRestTheme.SectionSpacing.breathe)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(NervRestTheme.Surface.background)
+                .background(
+                    LinearGradient(
+                        gradient: Gradient(colors: [
+                            Color.black,
+                            Color(hex: "#171120"),
+                            Color(hex: "#402959").opacity(0.8)
+                        ]),
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .ignoresSafeArea()
+                )
                 .transition(.opacity)
             }
         }
