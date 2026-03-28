@@ -100,7 +100,7 @@ struct ArousalGauge: View {
                 icon: "heart.fill",
                 value: "\(heartRate)",
                 unit: "BPM",
-                color: NervRestTheme.Arousal.high,
+                color: NervRestTheme.Arousal.elevated,
                 isPulsing: heartRate > 80
             )
 
@@ -108,7 +108,7 @@ struct ArousalGauge: View {
                 icon: "waveform.path.ecg",
                 value: "\(hrv)",
                 unit: "ms",
-                color: NervRestTheme.Arousal.calm,
+                color: NervRestTheme.Accent.secondary,
                 isPulsing: false
             )
         }
