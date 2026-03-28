@@ -17,20 +17,24 @@ class RampDownViewModel: ObservableObject {
             RampDownSuggestion(
                 id: UUID(),
                 fromApp: "TikTok",
-                toApp: "YouTube Longform",
-                toAppStimScore: 3.4,
-                predictedHRDrop: 12,
-                estimatedMinutesToCalm: 15,
-                deepLinkURL: URL(string: "youtube://")
-            ),
-            RampDownSuggestion(
-                id: UUID(),
-                fromApp: "TikTok",
                 toApp: "Podcast",
                 toAppStimScore: 2.1,
                 predictedHRDrop: 18,
                 estimatedMinutesToCalm: 10,
-                deepLinkURL: URL(string: "podcasts://")
+                deepLinkURL: URL(string: "podcasts://"),
+                coverImageName: "headphones",
+                durationMinutes: 30
+            ),
+            RampDownSuggestion(
+                id: UUID(),
+                fromApp: "TikTok",
+                toApp: "YouTube Longform",
+                toAppStimScore: 3.4,
+                predictedHRDrop: 12,
+                estimatedMinutesToCalm: 15,
+                deepLinkURL: URL(string: "youtube://"),
+                coverImageName: "play.rectangle.fill",
+                durationMinutes: 30
             ),
             RampDownSuggestion(
                 id: UUID(),
@@ -39,7 +43,9 @@ class RampDownViewModel: ObservableObject {
                 toAppStimScore: 1.2,
                 predictedHRDrop: 22,
                 estimatedMinutesToCalm: 8,
-                deepLinkURL: URL(string: "spotify:playlist:37i9dQZF1DWZd79rJ6a7lp")
+                deepLinkURL: URL(string: "spotify:playlist:37i9dQZF1DWZd79rJ6a7lp"),
+                coverImageName: "music.note",
+                durationMinutes: 30
             ),
         ]
     }

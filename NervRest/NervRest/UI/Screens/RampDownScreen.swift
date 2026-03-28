@@ -22,6 +22,8 @@ struct RampDownScreen: View {
                 headerSection
                 suggestionsSection
                 freeTextSection
+                orDivider
+                chatWithLunaButton
             }
             .padding(.horizontal, NervRestTheme.Spacing.lg)
             .padding(.top, NervRestTheme.Spacing.xl)
@@ -83,47 +85,49 @@ struct RampDownScreen: View {
         Button {
             onSuggestionTapped(suggestion)
         } label: {
-            HStack(spacing: 0) {
-                // Accent left edge
-                RoundedRectangle(cornerRadius: 2)
-                    .fill(NervRestTheme.Accent.secondary)
-                    .frame(width: 4)
-                    .padding(.vertical, NervRestTheme.Spacing.sm)
+            HStack(spacing: NervRestTheme.Spacing.md) {
+                // Left: Cover art icon
+                RoundedRectangle(cornerRadius: NervRestTheme.Radius.md)
+                    .fill(NervRestTheme.Accent.secondary.opacity(0.15))
+                    .frame(width: 80, height: 80)
+                    .overlay(
+                        Image(systemName: suggestion.coverImageName)
+                            .font(.system(size: 28, weight: .medium))
+                            .foregroundColor(NervRestTheme.Accent.secondary)
+                    )
 
-                // Card content
-                VStack(alignment: .leading, spacing: NervRestTheme.Spacing.sm) {
-                    // App name + stim score
-                    HStack {
-                        Text(suggestion.toApp)
-                            .font(NervRestTheme.Fonts.headline)
-                            .foregroundColor(NervRestTheme.Text.primary)
+                // Center: App name, subtitle, play pill
+                VStack(alignment: .leading, spacing: NervRestTheme.Spacing.xs) {
+                    Text(suggestion.toApp)
+                        .font(NervRestTheme.Fonts.headline)
+                        .foregroundColor(NervRestTheme.Text.primary)
 
-                        Spacer()
+                    Text("\(suggestion.estimatedMinutesToCalm)m to calm")
+                        .font(NervRestTheme.Fonts.caption)
+                        .foregroundColor(NervRestTheme.Text.secondary)
 
-                        // Stim score pill
-                        stimPill(score: suggestion.toAppStimScore)
+                    // Play button pill
+                    HStack(spacing: NervRestTheme.Spacing.xs) {
+                        Text("▶")
+                            .font(.system(size: 10))
+                        Text("\(suggestion.durationMinutes)min")
+                            .font(NervRestTheme.Fonts.micro)
                     }
-
-                    // Metrics row
-                    HStack(spacing: NervRestTheme.Spacing.lg) {
-                        metricView(
-                            icon: "heart.fill",
-                            value: "-\(Int(suggestion.predictedHRDrop))",
-                            label: "BPM",
-                            color: NervRestTheme.Accent.secondary
-                        )
-
-                        metricView(
-                            icon: "clock.fill",
-                            value: "\(suggestion.estimatedMinutesToCalm)",
-                            label: "min to calm",
-                            color: NervRestTheme.Text.secondary
-                        )
-                    }
+                    .foregroundColor(NervRestTheme.Text.primary)
+                    .padding(.horizontal, NervRestTheme.Spacing.sm)
+                    .padding(.vertical, NervRestTheme.Spacing.xs)
+                    .background(
+                        Capsule()
+                            .fill(NervRestTheme.Accent.primary.opacity(0.2))
+                    )
                 }
-                .padding(.horizontal, NervRestTheme.Spacing.md)
-                .padding(.vertical, NervRestTheme.Spacing.md)
+
+                Spacer()
+
+                // Right: Score ring
+                scoreRing(score: suggestion.toAppStimScore)
             }
+            .padding(NervRestTheme.Spacing.md)
             .background(
                 RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
                     .fill(
@@ -145,43 +149,23 @@ struct RampDownScreen: View {
         .buttonStyle(.plain)
     }
 
-    private func stimPill(score: Double) -> some View {
+    private func scoreRing(score: Double) -> some View {
         let color = NervRestTheme.Arousal.color(for: score)
-        return HStack(spacing: NervRestTheme.Spacing.xs) {
+        let progress = score / 10.0
+        return ZStack {
             Circle()
-                .fill(color)
-                .frame(width: 6, height: 6)
+                .stroke(color.opacity(0.2), lineWidth: 3)
+                .frame(width: 36, height: 36)
+
+            Circle()
+                .trim(from: 0, to: CGFloat(progress))
+                .stroke(color, style: StrokeStyle(lineWidth: 3, lineCap: .round))
+                .rotationEffect(.degrees(-90))
+                .frame(width: 36, height: 36)
 
             Text(String(format: "%.1f", score))
-                .font(NervRestTheme.Fonts.micro)
+                .font(.system(size: 10, weight: .bold, design: .rounded))
                 .foregroundColor(color)
-        }
-        .padding(.horizontal, NervRestTheme.Spacing.sm)
-        .padding(.vertical, NervRestTheme.Spacing.xs)
-        .background(
-            Capsule()
-                .fill(color.opacity(0.1))
-        )
-    }
-
-    private func metricView(
-        icon: String,
-        value: String,
-        label: String,
-        color: Color
-    ) -> some View {
-        HStack(spacing: NervRestTheme.Spacing.xs) {
-            Image(systemName: icon)
-                .font(.system(size: 11, weight: .semibold))
-                .foregroundColor(color)
-
-            Text(value)
-                .font(NervRestTheme.Fonts.headline)
-                .foregroundColor(NervRestTheme.Text.primary)
-
-            Text(label)
-                .font(NervRestTheme.Fonts.micro)
-                .foregroundColor(NervRestTheme.Text.tertiary)
         }
     }
 
@@ -235,6 +219,54 @@ struct RampDownScreen: View {
         }
         .opacity(appearAnimation ? 1.0 : 0.0)
         .offset(y: appearAnimation ? 0 : 20)
+    }
+
+    // MARK: - Or Divider
+
+    private var orDivider: some View {
+        HStack(spacing: NervRestTheme.Spacing.md) {
+            Rectangle()
+                .fill(NervRestTheme.Surface.cardBorder.opacity(0.4))
+                .frame(height: 0.5)
+
+            Text("Or")
+                .font(NervRestTheme.Fonts.caption)
+                .foregroundColor(NervRestTheme.Text.secondary)
+
+            Rectangle()
+                .fill(NervRestTheme.Surface.cardBorder.opacity(0.4))
+                .frame(height: 0.5)
+        }
+        .opacity(appearAnimation ? 1.0 : 0.0)
+    }
+
+    // MARK: - Chat with Luna CTA
+
+    private var chatWithLunaButton: some View {
+        Button {
+            // Navigate to Luna chat
+        } label: {
+            HStack(spacing: NervRestTheme.Spacing.sm) {
+                Image(systemName: "bubble.left.and.bubble.right.fill")
+                    .font(.system(size: 16, weight: .medium))
+                Text("Chat with Luna")
+                    .font(NervRestTheme.Fonts.headline)
+            }
+            .foregroundColor(NervRestTheme.Text.primary)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, NervRestTheme.Spacing.md)
+            .background(
+                RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
+                    .fill(NervRestTheme.Accent.secondary.opacity(0.25))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
+                            .stroke(NervRestTheme.Accent.secondary.opacity(0.4), lineWidth: 0.5)
+                    )
+            )
+        }
+        .buttonStyle(.plain)
+        .opacity(appearAnimation ? 1.0 : 0.0)
+        .offset(y: appearAnimation ? 0 : 12)
     }
 }
 
