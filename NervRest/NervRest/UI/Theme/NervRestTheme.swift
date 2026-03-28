@@ -53,14 +53,14 @@ enum NervRestTheme {
         static let glow = Color(hex: "#F8C8A3")           // ember 500 — warm glow
     }
 
-    // MARK: - Typography (SF Rounded — warm, approachable)
+    // MARK: - Typography (SF Pro — clean, professional)
     enum Fonts {
-        static let displayLarge = Font.system(size: 40, weight: .bold, design: .rounded)
-        static let displayMedium = Font.system(size: 28, weight: .bold, design: .rounded)
-        static let headline = Font.system(size: 17, weight: .semibold, design: .rounded)
-        static let body = Font.system(size: 15, weight: .regular, design: .rounded)
-        static let caption = Font.system(size: 13, weight: .regular, design: .rounded)
-        static let micro = Font.system(size: 11, weight: .medium, design: .rounded)
+        static let displayLarge = Font.system(size: 40, weight: .bold, design: .default)
+        static let displayMedium = Font.system(size: 28, weight: .bold, design: .default)
+        static let headline = Font.system(size: 17, weight: .semibold, design: .default)
+        static let body = Font.system(size: 15, weight: .regular, design: .default)
+        static let caption = Font.system(size: 13, weight: .regular, design: .default)
+        static let micro = Font.system(size: 11, weight: .medium, design: .default)
         static let score = Font.system(size: 56, weight: .heavy, design: .rounded)
     }
 
@@ -72,6 +72,14 @@ enum NervRestTheme {
         static let lg: CGFloat = 24
         static let xl: CGFloat = 32
         static let xxl: CGFloat = 48
+    }
+
+    // MARK: - Section Spacing (intentional rhythm, not uniform grid)
+    enum SectionSpacing {
+        static let tight: CGFloat = 12
+        static let normal: CGFloat = 24
+        static let breathe: CGFloat = 40
+        static let dramatic: CGFloat = 56
     }
 
     // MARK: - Corner Radius
