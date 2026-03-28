@@ -26,12 +26,17 @@ class NotificationDelegate: NSObject, ObservableObject, UNUserNotificationCenter
 
 @main
 struct NervRestApp: App {
+    @State private var showOnboarding = !OnboardingViewModel.hasCompletedOnboarding()
+    @StateObject private var onboardingVM = OnboardingViewModel()
     @StateObject private var container = AppContainer()
     @StateObject private var router = AppRouter()
     @StateObject private var notificationDelegate = NotificationDelegate()
 
     var body: some Scene {
         WindowGroup {
+            if showOnboarding {
+                onboardingFlow
+            } else {
             NavigationStack(path: $router.path) {
                 HomeScreen(viewModel: container.homeViewModel)
                     .navigationDestination(for: AppRoute.self) { route in
@@ -92,6 +97,48 @@ struct NervRestApp: App {
                     router.navigate(to: .mismatchDetail)
                 }
             }
+            } // else
+        }
+    }
+
+    @ViewBuilder
+    private var onboardingFlow: some View {
+        switch onboardingVM.currentStep {
+        case 0:
+            OnboardingSplashScreen {
+                onboardingVM.advance()
+            }
+        case 1:
+            OnboardingPreferencesScreen(
+                title: "What helps you wind down?",
+                subtitle: "Select at least 3 forms that help the most",
+                options: UserPreferences.windDownOptions,
+                selections: $onboardingVM.windDownSelections,
+                currentStep: 1,
+                totalSteps: 3,
+                minSelections: 3
+            ) {
+                onboardingVM.advance()
+            }
+            .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+        case 2:
+            OnboardingPreferencesScreen(
+                title: "What content are you most interested in?",
+                subtitle: "Select at least 3 topics you are interested in",
+                options: UserPreferences.contentOptions,
+                selections: $onboardingVM.contentSelections,
+                currentStep: 2,
+                totalSteps: 3,
+                minSelections: 3
+            ) {
+                onboardingVM.completeOnboarding()
+                withAnimation(.easeInOut(duration: 0.5)) {
+                    showOnboarding = false
+                }
+            }
+            .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+        default:
+            EmptyView()
         }
     }
 }
