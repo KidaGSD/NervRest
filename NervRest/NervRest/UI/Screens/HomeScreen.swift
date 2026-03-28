@@ -36,94 +36,78 @@ struct HomeScreen: View {
             // Night-sky background
             backgroundLayer
 
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 0) {
-                    // 1. Agent character
-                    AgentCharacter(mood: viewModel.agentMood, size: 64)
-                        .padding(.top, NervRestTheme.SectionSpacing.dramatic)
-
-                    // 2. Status message
-                    Text(statusMessage)
-                        .font(NervRestTheme.Fonts.body)
-                        .foregroundColor(statusColor)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, NervRestTheme.Spacing.lg)
-                        .padding(.top, NervRestTheme.SectionSpacing.tight)
-
-                    // 3. Hero gauge
-                    ArousalGauge(
-                        score: viewModel.arousalScore,
-                        level: viewModel.arousalLevel,
-                        heartRate: viewModel.heartRate,
-                        hrv: viewModel.hrv
-                    )
+            VStack(spacing: 0) {
+                // 1. Agent character (smaller — gauge is the hero)
+                AgentCharacter(mood: viewModel.agentMood, size: 48)
                     .padding(.top, NervRestTheme.SectionSpacing.normal)
 
-                    // 4. Stim score badge
-                    StimScoreBadge(
-                        appName: viewModel.currentApp,
-                        score: viewModel.currentStimScore
-                    )
-                    .padding(.top, NervRestTheme.SectionSpacing.tight)
+                // 2. Status message
+                Text(statusMessage)
+                    .font(NervRestTheme.Fonts.body)
+                    .foregroundColor(statusColor)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, NervRestTheme.Spacing.lg)
+                    .padding(.top, NervRestTheme.Spacing.sm)
 
-                    // 5. Biometric cards
-                    HStack(spacing: NervRestTheme.Spacing.md) {
-                        BiometricCard(
-                            title: "Heart Rate",
-                            value: "\(viewModel.heartRate)",
-                            unit: "BPM",
-                            icon: "heart.fill",
-                            color: NervRestTheme.Arousal.elevated
-                        )
-                        BiometricCard(
-                            title: "HRV",
-                            value: "\(viewModel.hrv)",
-                            unit: "ms",
-                            icon: "waveform.path.ecg",
-                            color: NervRestTheme.Accent.secondary
-                        )
-                    }
-                    .padding(.horizontal, NervRestTheme.Spacing.md)
-                    .padding(.top, NervRestTheme.SectionSpacing.breathe)
+                // 3. Hero gauge (compact — pills already show HR/HRV)
+                ArousalGauge(
+                    score: viewModel.arousalScore,
+                    level: viewModel.arousalLevel,
+                    heartRate: viewModel.heartRate,
+                    hrv: viewModel.hrv
+                )
+                .padding(.top, NervRestTheme.Spacing.md)
 
-                    // 6. Session button
+                // 4. Stim score badge
+                StimScoreBadge(
+                    appName: viewModel.currentApp,
+                    score: viewModel.currentStimScore
+                )
+                .padding(.top, NervRestTheme.Spacing.sm)
+
+                Spacer()
+
+                // 5. Action buttons
+                VStack(spacing: NervRestTheme.Spacing.sm) {
+                    // Primary: Start/Stop Session
                     sessionButton
-                        .padding(.horizontal, NervRestTheme.Spacing.md)
-                        .padding(.top, NervRestTheme.SectionSpacing.breathe)
 
-                    // 7. Launch Demo button
+                    // Secondary: Launch Demo
                     Button(action: {
                         viewModel.startMonitoring()
                         router.navigate(to: .demoFlow)
                     }) {
-                        HStack {
+                        HStack(spacing: NervRestTheme.Spacing.sm) {
                             Image(systemName: "play.fill")
+                                .font(.system(size: 12))
                             Text("Launch Demo")
+                                .font(NervRestTheme.Fonts.headline)
                         }
-                        .font(NervRestTheme.Fonts.headline)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, NervRestTheme.Spacing.md)
-                        .background(NervRestTheme.Arousal.elevated)
-                        .cornerRadius(NervRestTheme.Radius.lg)
+                        .background(
+                            RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
+                                .fill(NervRestTheme.Arousal.elevated)
+                        )
                     }
-                    .padding(.horizontal, NervRestTheme.Spacing.md)
-                    .padding(.top, NervRestTheme.Spacing.md)
 
-                    // 8. Chat with Luna button
+                    // Tertiary: Chat with Luna
                     Button(action: {
                         router.navigate(to: .lunaChat)
                     }) {
-                        HStack {
+                        HStack(spacing: NervRestTheme.Spacing.xs) {
                             Image(systemName: "message.fill")
+                                .font(.system(size: 12))
                             Text("Chat with Luna")
+                                .font(NervRestTheme.Fonts.body)
                         }
-                        .font(NervRestTheme.Fonts.body)
                         .foregroundColor(NervRestTheme.Text.secondary)
                     }
-                    .padding(.top, NervRestTheme.Spacing.sm)
-                    .padding(.bottom, NervRestTheme.Spacing.xxl)
+                    .padding(.top, NervRestTheme.Spacing.xs)
                 }
+                .padding(.horizontal, NervRestTheme.Spacing.md)
+                .padding(.bottom, NervRestTheme.SectionSpacing.normal)
             }
         }
         .preferredColorScheme(.dark)

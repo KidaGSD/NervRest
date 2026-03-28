@@ -89,7 +89,7 @@ struct ArousalGauge: View {
                     .foregroundColor(levelColor)
             }
         }
-        .frame(width: 220, height: 220)
+        .frame(width: 180, height: 180)
     }
 
     // MARK: - Biometric Pills
