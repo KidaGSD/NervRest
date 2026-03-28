@@ -1,0 +1,16 @@
+{
+  "TikTok":           { "novelty": 9, "emotion": 7, "sensory": 9, "interactivity": 8, "baseScore": 8.3 },
+  "Twitter":          { "novelty": 8, "emotion": 9, "sensory": 5, "interactivity": 7, "baseScore": 7.5 },
+  "Instagram":        { "novelty": 7, "emotion": 6, "sensory": 7, "interactivity": 7, "baseScore": 6.8 },
+  "Reddit":           { "novelty": 6, "emotion": 7, "sensory": 4, "interactivity": 6, "baseScore": 5.9 },
+  "YouTube":          { "novelty": 5, "emotion": 5, "sensory": 6, "interactivity": 3, "baseScore": 4.8 },
+  "Netflix":          { "novelty": 4, "emotion": 7, "sensory": 6, "interactivity": 2, "baseScore": 4.8 },
+  "News":             { "novelty": 7, "emotion": 8, "sensory": 4, "interactivity": 5, "baseScore": 6.2 },
+  "Messaging":        { "novelty": 5, "emotion": 5, "sensory": 2, "interactivity": 7, "baseScore": 4.9 },
+  "YouTube_longform": { "novelty": 3, "emotion": 4, "sensory": 5, "interactivity": 2, "baseScore": 3.4 },
+  "Podcast":          { "novelty": 2, "emotion": 4, "sensory": 1, "interactivity": 1, "baseScore": 2.1 },
+  "Kindle":           { "novelty": 1, "emotion": 3, "sensory": 1, "interactivity": 2, "baseScore": 1.7 },
+  "Spotify_lofi":     { "novelty": 1, "emotion": 1, "sensory": 2, "interactivity": 1, "baseScore": 1.2 },
+  "Meditation":       { "novelty": 1, "emotion": 2, "sensory": 2, "interactivity": 2, "baseScore": 1.7 },
+  "Yoga":             { "novelty": 1, "emotion": 2, "sensory": 3, "interactivity": 2, "baseScore": 1.9 }
+}

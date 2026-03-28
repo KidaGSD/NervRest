@@ -1,0 +1,9 @@
+[
+  { "appName": "Instagram", "category": "socialMedia", "startMinute": 0, "durationMinutes": 20 },
+  { "appName": "Netflix", "category": "entertainment", "startMinute": 20, "durationMinutes": 45 },
+  { "appName": "Messaging", "category": "messaging", "startMinute": 65, "durationMinutes": 10 },
+  { "appName": "Twitter", "category": "socialMedia", "startMinute": 75, "durationMinutes": 15 },
+  { "appName": "TikTok", "category": "socialMedia", "startMinute": 90, "durationMinutes": 15 },
+  { "appName": "YouTube_longform", "category": "entertainment", "startMinute": 105, "durationMinutes": 20 },
+  { "appName": "Podcast", "category": "education", "startMinute": 125, "durationMinutes": 25 }
+]

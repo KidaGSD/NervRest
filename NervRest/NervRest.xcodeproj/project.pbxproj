@@ -1,0 +1,662 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A594CDAA67A3728287DB139 /* app-stim-scores.json in Resources */ = {isa = PBXBuildFile; fileRef = 33FB419EA1E9C449A1938684 /* app-stim-scores.json */; };
+		11F340E4A026244A22B2A181 /* StaticStimScoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58494D569872CE98DC9363E7 /* StaticStimScoreProvider.swift */; };
+		362B4DC49413B3D3DA3646EA /* BiometricReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B4ECDAF60B2D48C29553F /* BiometricReading.swift */; };
+		395C423080FEA930E26271A0 /* SimulatedAppUsageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC4CF188867F73E1DD5EA2 /* SimulatedAppUsageProvider.swift */; };
+		399344079C8195356A3FFBA8 /* RampDownSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44134A9F9CD4F011EE247DDB /* RampDownSuggestion.swift */; };
+		3FC04869ABD615A088306EDF /* ContextDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BF4B8AB23DB21AA60C97E2 /* ContextDataProvider.swift */; };
+		406E436ABFB12A72FFEDA4CA /* PersonalProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D42969C12C623F4792820 /* PersonalProfile.swift */; };
+		4BBA48A892273B63F9DD5724 /* RealContextProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011A40039D852F915BFA3EDB /* RealContextProvider.swift */; };
+		505E4BB383E3D44B6DD24BE8 /* SimulatedBiometricProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7447A7B7F25A396610BD1C /* SimulatedBiometricProvider.swift */; };
+		63DB4F64B984E3A72815C77C /* BiometricDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030A488BA0AEC4944768240E /* BiometricDataProvider.swift */; };
+		6AFF4197971B1799D61F987F /* StimScoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4023439EA35EB7E67E1E3C0F /* StimScoreProvider.swift */; };
+		6CEF4820B6AE007573E3C17E /* Double+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35840FCA9EB480DA15458F9 /* Double+Rounding.swift */; };
+		6F7F4755BE96D30A43F4D33B /* AppUsageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F804AA89339E31372561E23 /* AppUsageDataProvider.swift */; };
+		92F24CA3B643545BC3F7778A /* evening-timeline.json in Resources */ = {isa = PBXBuildFile; fileRef = B90246EA8FE7D9B149CD8644 /* evening-timeline.json */; };
+		B2DB44FA9B1A326A339BB51F /* MismatchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1514160B1CF36755E539A17 /* MismatchEvent.swift */; };
+		B78C476E9DFC6F7663A5C3F2 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE14E86B81903D97ADA0FC8 /* Color+Hex.swift */; };
+		C3614F2D9C86EC356A31DABA /* AgentCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E34D72B01CCC57B4569D5E /* AgentCharacter.swift */; };
+		C8144293A2A3414268E104D8 /* AppUsageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48604934BD92FC54E8D376E9 /* AppUsageEvent.swift */; };
+		E0A04816A24A77CFE4EC6F58 /* ArousalScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369413D802469E21F82AAB5 /* ArousalScore.swift */; };
+		E3254762A42EEC94C254B17E /* NervRestTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A5439D870DC01D1EB1A5CD /* NervRestTheme.swift */; };
+		F7AD48148CA60FAD44B6BF03 /* UserContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA74523A3DEFFD6093A0999 /* UserContext.swift */; };
+		F9C940E7B0E8B48201ED946D /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92704A49B371B14766C71744 /* Date+Formatting.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1FE596F32F784499006C838A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FE596DD2F784497006C838A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FE596E42F784497006C838A;
+			remoteInfo = NervRest;
+		};
+		1FE596FD2F784499006C838A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FE596DD2F784497006C838A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FE596E42F784497006C838A;
+			remoteInfo = NervRest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		011A40039D852F915BFA3EDB /* RealContextProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealContextProvider.swift; path = NervRest/Data/Simulated/RealContextProvider.swift; sourceTree = SOURCE_ROOT; };
+		030A488BA0AEC4944768240E /* BiometricDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BiometricDataProvider.swift; path = NervRest/Data/Providers/BiometricDataProvider.swift; sourceTree = SOURCE_ROOT; };
+		1E7447A7B7F25A396610BD1C /* SimulatedBiometricProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SimulatedBiometricProvider.swift; path = NervRest/Data/Simulated/SimulatedBiometricProvider.swift; sourceTree = SOURCE_ROOT; };
+		1FE596E52F784497006C838A /* NervRest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NervRest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FE596F22F784499006C838A /* NervRestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NervRestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FE596FC2F784499006C838A /* NervRestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NervRestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		33FB419EA1E9C449A1938684 /* app-stim-scores.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "app-stim-scores.json"; path = "NervRest/Resources/app-stim-scores.json"; sourceTree = SOURCE_ROOT; };
+		3EA74523A3DEFFD6093A0999 /* UserContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserContext.swift; path = NervRest/Data/Models/UserContext.swift; sourceTree = SOURCE_ROOT; };
+		3F804AA89339E31372561E23 /* AppUsageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppUsageDataProvider.swift; path = NervRest/Data/Providers/AppUsageDataProvider.swift; sourceTree = SOURCE_ROOT; };
+		4023439EA35EB7E67E1E3C0F /* StimScoreProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StimScoreProvider.swift; path = NervRest/Data/Providers/StimScoreProvider.swift; sourceTree = SOURCE_ROOT; };
+		44134A9F9CD4F011EE247DDB /* RampDownSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RampDownSuggestion.swift; path = NervRest/Data/Models/RampDownSuggestion.swift; sourceTree = SOURCE_ROOT; };
+		48604934BD92FC54E8D376E9 /* AppUsageEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppUsageEvent.swift; path = NervRest/Data/Models/AppUsageEvent.swift; sourceTree = SOURCE_ROOT; };
+		58494D569872CE98DC9363E7 /* StaticStimScoreProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StaticStimScoreProvider.swift; path = NervRest/Data/Simulated/StaticStimScoreProvider.swift; sourceTree = SOURCE_ROOT; };
+		60E34D72B01CCC57B4569D5E /* AgentCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AgentCharacter.swift; path = NervRest/UI/Components/AgentCharacter.swift; sourceTree = SOURCE_ROOT; };
+		8B8D42969C12C623F4792820 /* PersonalProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalProfile.swift; path = NervRest/Data/Models/PersonalProfile.swift; sourceTree = SOURCE_ROOT; };
+		92704A49B371B14766C71744 /* Date+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+Formatting.swift"; path = "NervRest/Extensions/Date+Formatting.swift"; sourceTree = SOURCE_ROOT; };
+		B4BF4B8AB23DB21AA60C97E2 /* ContextDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContextDataProvider.swift; path = NervRest/Data/Providers/ContextDataProvider.swift; sourceTree = SOURCE_ROOT; };
+		B90246EA8FE7D9B149CD8644 /* evening-timeline.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "evening-timeline.json"; path = "NervRest/Resources/evening-timeline.json"; sourceTree = SOURCE_ROOT; };
+		BCE14E86B81903D97ADA0FC8 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Color+Hex.swift"; path = "NervRest/UI/Theme/Color+Hex.swift"; sourceTree = SOURCE_ROOT; };
+		E1514160B1CF36755E539A17 /* MismatchEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MismatchEvent.swift; path = NervRest/Data/Models/MismatchEvent.swift; sourceTree = SOURCE_ROOT; };
+		E35840FCA9EB480DA15458F9 /* Double+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Double+Rounding.swift"; path = "NervRest/Extensions/Double+Rounding.swift"; sourceTree = SOURCE_ROOT; };
+		E7A5439D870DC01D1EB1A5CD /* NervRestTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NervRestTheme.swift; path = NervRest/UI/Theme/NervRestTheme.swift; sourceTree = SOURCE_ROOT; };
+		E98B4ECDAF60B2D48C29553F /* BiometricReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BiometricReading.swift; path = NervRest/Data/Models/BiometricReading.swift; sourceTree = SOURCE_ROOT; };
+		ECCC4CF188867F73E1DD5EA2 /* SimulatedAppUsageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SimulatedAppUsageProvider.swift; path = NervRest/Data/Simulated/SimulatedAppUsageProvider.swift; sourceTree = SOURCE_ROOT; };
+		F369413D802469E21F82AAB5 /* ArousalScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArousalScore.swift; path = NervRest/Data/Models/ArousalScore.swift; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		1FE596E72F784497006C838A /* NervRest */ = {isa = PBXFileSystemSynchronizedRootGroup; path = NervRest; sourceTree = "<group>"; };
+		1FE596F52F784499006C838A /* NervRestTests */ = {isa = PBXFileSystemSynchronizedRootGroup; path = NervRestTests; sourceTree = "<group>"; };
+		1FE596FF2F784499006C838A /* NervRestUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; path = NervRestUITests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1FE596E22F784497006C838A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FE596EF2F784499006C838A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FE596F92F784499006C838A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1FE596DC2F784497006C838A = {
+			isa = PBXGroup;
+			children = (
+				1FE596E72F784497006C838A /* NervRest */,
+				1FE596F52F784499006C838A /* NervRestTests */,
+				1FE596FF2F784499006C838A /* NervRestUITests */,
+				1FE596E62F784497006C838A /* Products */,
+				60E34D72B01CCC57B4569D5E /* AgentCharacter.swift */,
+				BCE14E86B81903D97ADA0FC8 /* Color+Hex.swift */,
+				E7A5439D870DC01D1EB1A5CD /* NervRestTheme.swift */,
+				E35840FCA9EB480DA15458F9 /* Double+Rounding.swift */,
+				92704A49B371B14766C71744 /* Date+Formatting.swift */,
+				58494D569872CE98DC9363E7 /* StaticStimScoreProvider.swift */,
+				011A40039D852F915BFA3EDB /* RealContextProvider.swift */,
+				1E7447A7B7F25A396610BD1C /* SimulatedBiometricProvider.swift */,
+				ECCC4CF188867F73E1DD5EA2 /* SimulatedAppUsageProvider.swift */,
+				3F804AA89339E31372561E23 /* AppUsageDataProvider.swift */,
+				B4BF4B8AB23DB21AA60C97E2 /* ContextDataProvider.swift */,
+				030A488BA0AEC4944768240E /* BiometricDataProvider.swift */,
+				4023439EA35EB7E67E1E3C0F /* StimScoreProvider.swift */,
+				48604934BD92FC54E8D376E9 /* AppUsageEvent.swift */,
+				44134A9F9CD4F011EE247DDB /* RampDownSuggestion.swift */,
+				E98B4ECDAF60B2D48C29553F /* BiometricReading.swift */,
+				3EA74523A3DEFFD6093A0999 /* UserContext.swift */,
+				8B8D42969C12C623F4792820 /* PersonalProfile.swift */,
+				F369413D802469E21F82AAB5 /* ArousalScore.swift */,
+				E1514160B1CF36755E539A17 /* MismatchEvent.swift */,
+				33FB419EA1E9C449A1938684 /* app-stim-scores.json */,
+				B90246EA8FE7D9B149CD8644 /* evening-timeline.json */,
+			);
+			sourceTree = "<group>";
+		};
+		1FE596E62F784497006C838A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1FE596E52F784497006C838A /* NervRest.app */,
+				1FE596F22F784499006C838A /* NervRestTests.xctest */,
+				1FE596FC2F784499006C838A /* NervRestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1FE596E42F784497006C838A /* NervRest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FE597062F784499006C838A /* Build configuration list for PBXNativeTarget "NervRest" */;
+			buildPhases = (
+				1FE596E12F784497006C838A /* Sources */,
+				1FE596E22F784497006C838A /* Frameworks */,
+				1FE596E32F784497006C838A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1FE596E72F784497006C838A /* NervRest */,
+			);
+			name = NervRest;
+			packageProductDependencies = (
+			);
+			productName = NervRest;
+			productReference = 1FE596E52F784497006C838A /* NervRest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1FE596F12F784499006C838A /* NervRestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FE597092F784499006C838A /* Build configuration list for PBXNativeTarget "NervRestTests" */;
+			buildPhases = (
+				1FE596EE2F784499006C838A /* Sources */,
+				1FE596EF2F784499006C838A /* Frameworks */,
+				1FE596F02F784499006C838A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FE596F42F784499006C838A /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				1FE596F52F784499006C838A /* NervRestTests */,
+			);
+			name = NervRestTests;
+			packageProductDependencies = (
+			);
+			productName = NervRestTests;
+			productReference = 1FE596F22F784499006C838A /* NervRestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1FE596FB2F784499006C838A /* NervRestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FE5970C2F784499006C838A /* Build configuration list for PBXNativeTarget "NervRestUITests" */;
+			buildPhases = (
+				1FE596F82F784499006C838A /* Sources */,
+				1FE596F92F784499006C838A /* Frameworks */,
+				1FE596FA2F784499006C838A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FE596FE2F784499006C838A /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				1FE596FF2F784499006C838A /* NervRestUITests */,
+			);
+			name = NervRestUITests;
+			packageProductDependencies = (
+			);
+			productName = NervRestUITests;
+			productReference = 1FE596FC2F784499006C838A /* NervRestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1FE596DD2F784497006C838A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					1FE596E42F784497006C838A = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					1FE596F12F784499006C838A = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = 1FE596E42F784497006C838A;
+					};
+					1FE596FB2F784499006C838A = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = 1FE596E42F784497006C838A;
+					};
+				};
+			};
+			buildConfigurationList = 1FE596E02F784497006C838A /* Build configuration list for PBXProject "NervRest" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1FE596DC2F784497006C838A;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 1FE596E62F784497006C838A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1FE596E42F784497006C838A /* NervRest */,
+				1FE596F12F784499006C838A /* NervRestTests */,
+				1FE596FB2F784499006C838A /* NervRestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1FE596E32F784497006C838A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A594CDAA67A3728287DB139 /* app-stim-scores.json in Resources */,
+				92F24CA3B643545BC3F7778A /* evening-timeline.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FE596F02F784499006C838A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FE596FA2F784499006C838A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1FE596E12F784497006C838A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3614F2D9C86EC356A31DABA /* AgentCharacter.swift in Sources */,
+				B78C476E9DFC6F7663A5C3F2 /* Color+Hex.swift in Sources */,
+				E3254762A42EEC94C254B17E /* NervRestTheme.swift in Sources */,
+				6CEF4820B6AE007573E3C17E /* Double+Rounding.swift in Sources */,
+				F9C940E7B0E8B48201ED946D /* Date+Formatting.swift in Sources */,
+				11F340E4A026244A22B2A181 /* StaticStimScoreProvider.swift in Sources */,
+				4BBA48A892273B63F9DD5724 /* RealContextProvider.swift in Sources */,
+				505E4BB383E3D44B6DD24BE8 /* SimulatedBiometricProvider.swift in Sources */,
+				395C423080FEA930E26271A0 /* SimulatedAppUsageProvider.swift in Sources */,
+				6F7F4755BE96D30A43F4D33B /* AppUsageDataProvider.swift in Sources */,
+				3FC04869ABD615A088306EDF /* ContextDataProvider.swift in Sources */,
+				63DB4F64B984E3A72815C77C /* BiometricDataProvider.swift in Sources */,
+				6AFF4197971B1799D61F987F /* StimScoreProvider.swift in Sources */,
+				C8144293A2A3414268E104D8 /* AppUsageEvent.swift in Sources */,
+				399344079C8195356A3FFBA8 /* RampDownSuggestion.swift in Sources */,
+				362B4DC49413B3D3DA3646EA /* BiometricReading.swift in Sources */,
+				F7AD48148CA60FAD44B6BF03 /* UserContext.swift in Sources */,
+				406E436ABFB12A72FFEDA4CA /* PersonalProfile.swift in Sources */,
+				E0A04816A24A77CFE4EC6F58 /* ArousalScore.swift in Sources */,
+				B2DB44FA9B1A326A339BB51F /* MismatchEvent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FE596EE2F784499006C838A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FE596F82F784499006C838A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FE596F42F784499006C838A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FE596E42F784497006C838A /* NervRest */;
+			targetProxy = 1FE596F32F784499006C838A /* PBXContainerItemProxy */;
+		};
+		1FE596FE2F784499006C838A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FE596E42F784497006C838A /* NervRest */;
+			targetProxy = 1FE596FD2F784499006C838A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1FE597042F784499006C838A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = GH6FHBA4XA;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1FE597052F784499006C838A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = GH6FHBA4XA;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1FE597072F784499006C838A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GH6FHBA4XA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kida.NervRest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1FE597082F784499006C838A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GH6FHBA4XA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kida.NervRest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1FE5970A2F784499006C838A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GH6FHBA4XA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kida.NervRestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NervRest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NervRest";
+			};
+			name = Debug;
+		};
+		1FE5970B2F784499006C838A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GH6FHBA4XA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kida.NervRestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NervRest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NervRest";
+			};
+			name = Release;
+		};
+		1FE5970D2F784499006C838A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GH6FHBA4XA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kida.NervRestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NervRest;
+			};
+			name = Debug;
+		};
+		1FE5970E2F784499006C838A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GH6FHBA4XA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kida.NervRestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NervRest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FE596E02F784497006C838A /* Build configuration list for PBXProject "NervRest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FE597042F784499006C838A /* Debug */,
+				1FE597052F784499006C838A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FE597062F784499006C838A /* Build configuration list for PBXNativeTarget "NervRest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FE597072F784499006C838A /* Debug */,
+				1FE597082F784499006C838A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FE597092F784499006C838A /* Build configuration list for PBXNativeTarget "NervRestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FE5970A2F784499006C838A /* Debug */,
+				1FE5970B2F784499006C838A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FE5970C2F784499006C838A /* Build configuration list for PBXNativeTarget "NervRestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FE5970D2F784499006C838A /* Debug */,
+				1FE5970E2F784499006C838A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1FE596DD2F784497006C838A /* Project object */;
+}
