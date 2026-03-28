@@ -36,10 +36,10 @@ struct HomeScreen: View {
             backgroundLayer
 
             ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: NervRestTheme.Spacing.lg) {
+                VStack(spacing: 0) {
                     // 1. Agent character
                     AgentCharacter(mood: viewModel.agentMood, size: 64)
-                        .padding(.top, NervRestTheme.Spacing.xl)
+                        .padding(.top, NervRestTheme.SectionSpacing.dramatic)
 
                     // 2. Status message
                     Text(statusMessage)
@@ -47,6 +47,7 @@ struct HomeScreen: View {
                         .foregroundColor(statusColor)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, NervRestTheme.Spacing.lg)
+                        .padding(.top, NervRestTheme.SectionSpacing.tight)
 
                     // 3. Hero gauge
                     ArousalGauge(
@@ -55,12 +56,14 @@ struct HomeScreen: View {
                         heartRate: viewModel.heartRate,
                         hrv: viewModel.hrv
                     )
+                    .padding(.top, NervRestTheme.SectionSpacing.normal)
 
                     // 4. Stim score badge
                     StimScoreBadge(
                         appName: viewModel.currentApp,
                         score: viewModel.currentStimScore
                     )
+                    .padding(.top, NervRestTheme.SectionSpacing.tight)
 
                     // 5. Biometric cards
                     HStack(spacing: NervRestTheme.Spacing.md) {
@@ -80,10 +83,12 @@ struct HomeScreen: View {
                         )
                     }
                     .padding(.horizontal, NervRestTheme.Spacing.md)
+                    .padding(.top, NervRestTheme.SectionSpacing.breathe)
 
                     // 6. Session button
                     sessionButton
                         .padding(.horizontal, NervRestTheme.Spacing.md)
+                        .padding(.top, NervRestTheme.SectionSpacing.breathe)
                         .padding(.bottom, NervRestTheme.Spacing.xxl)
                 }
             }
@@ -98,15 +103,35 @@ struct HomeScreen: View {
             NervRestTheme.Surface.background
                 .ignoresSafeArea()
 
-            // Subtle radial glow anchored behind the gauge area
             RadialGradient(
                 gradient: Gradient(colors: [
-                    statusColor.opacity(0.08),
+                    NervRestTheme.Accent.glow.opacity(0.04),
                     Color.clear
                 ]),
-                center: .center,
-                startRadius: 40,
-                endRadius: 300
+                center: UnitPoint(x: 0.8, y: 0.1),
+                startRadius: 20,
+                endRadius: 350
+            )
+            .ignoresSafeArea()
+
+            RadialGradient(
+                gradient: Gradient(colors: [
+                    statusColor.opacity(0.1),
+                    Color.clear
+                ]),
+                center: UnitPoint(x: 0.5, y: 0.4),
+                startRadius: 30,
+                endRadius: 250
+            )
+            .ignoresSafeArea()
+
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color.clear,
+                    NervRestTheme.Surface.cardBackground.opacity(0.3)
+                ]),
+                startPoint: UnitPoint(x: 0.5, y: 0.6),
+                endPoint: .bottom
             )
             .ignoresSafeArea()
         }
