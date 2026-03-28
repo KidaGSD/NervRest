@@ -1,6 +1,10 @@
 # NervRest Continuity
 
 ## [PROGRESS]
+- **2026-03-28T23:30Z** [CODE] V2 alignment Task 4: ShieldOverlayScreen redesigned to match V2 Figma design.
+  - `ShieldOverlayScreen.swift` — replaced AgentCharacter+subtitle pills layout with ArousalGauge hero gauge, alarm info bar (HStack with "Alarm" / time), body text, V2 button styling. Added `alarmTime: String` parameter. `arousalLevel` computed property uses 0-100 thresholds. Kept cinematic entrance animation (curtain drop + content reveal + breathing glow) but simplified from 4 phases to 3. Preview updated to 0-100 scale (score: 87).
+  - `NervRestApp.swift` — `.shieldOverlay` case now passes `alarmTime: container.contextProvider.currentContext.alarmTime?.hourMinute ?? "7:00 AM"` to ShieldOverlayScreen. `contextProvider` is public `let` on AppContainer, no access change needed.
+  - Build succeeded (iPhone 17 Pro Simulator).
 - **2026-03-28T23:00Z** [CODE] V2 alignment Tasks 1+2: Scoring scale changed from 1-10 to 0-100 and biometric weights fixed across 5 files.
   - `ArousalScore.swift` — level thresholds updated to 0-100 (0/<30/<50/<70/<90), comment updated.
   - `StimulationEngine.swift` — `updateScore()` rewritten: biometric-first scoring (HR 50%, HRV 30%, RR 20%), respiratory rate support, output 0-100. Guard no longer requires app/stim; stim lookup is now optional.

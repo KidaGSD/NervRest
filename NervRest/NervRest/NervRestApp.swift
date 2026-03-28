@@ -52,6 +52,7 @@ struct NervRestApp: App {
                             ShieldOverlayScreen(
                                 arousalScore: container.homeViewModel.arousalScore,
                                 currentHR: container.homeViewModel.heartRate,
+                                alarmTime: container.contextProvider.currentContext.alarmTime?.hourMinute ?? "7:00 AM",
                                 onShowAlternatives: { router.navigate(to: .rampDown) },
                                 onFiveMoreMinutes: { router.popToRoot() }
                             )

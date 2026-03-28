@@ -1,48 +1,114 @@
 import SwiftUI
 
 struct ShieldOverlayScreen: View {
-    let arousalScore: Double
+    let arousalScore: Double      // 0-100
     let currentHR: Int
+    let alarmTime: String         // e.g. "8:00 AM"
     var onShowAlternatives: () -> Void = {}
     var onFiveMoreMinutes: () -> Void = {}
 
     @State private var curtainDrop = false
     @State private var contentReveal = false
-    @State private var pulseAgent = false
     @State private var breatheGlow = false
 
     var body: some View {
         ZStack {
-            // Layer 1: Cinematic dark gradient — theater lights dimming
+            // Layer 1: Cinematic dark background
             cinematicBackground
 
-            // Layer 2: Subtle radial glow behind agent
+            // Layer 2: Breathing glow behind gauge
             agentGlow
 
             // Layer 3: Content
             VStack(spacing: 0) {
                 Spacer()
 
-                agentSection
-                    .padding(.bottom, NervRestTheme.Spacing.xl)
+                // Arousal Gauge (reuse ArousalGauge component)
+                ArousalGauge(
+                    score: arousalScore,
+                    level: arousalLevel,
+                    heartRate: currentHR,
+                    hrv: 24  // placeholder
+                )
 
-                titleSection
-                    .padding(.bottom, NervRestTheme.Spacing.lg)
+                Spacer().frame(height: 32)
 
-                subtitleSection
-                    .padding(.bottom, NervRestTheme.Spacing.xxl)
+                // Title
+                Text("Time to wind down")
+                    .font(NervRestTheme.Fonts.displayMedium)
+                    .foregroundColor(NervRestTheme.Text.primary)
 
-                buttonsSection
-                    .padding(.bottom, NervRestTheme.Spacing.xl)
+                Spacer().frame(height: 12)
 
-                Spacer()
-                    .frame(height: NervRestTheme.Spacing.xxl)
+                // Body text
+                Text("Your bedtime is approaching and your stimulation level is quite high. Fancy seeing bedtime-ready alternatives?")
+                    .font(NervRestTheme.Fonts.body)
+                    .foregroundColor(NervRestTheme.Text.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 32)
+
+                Spacer().frame(height: 24)
+
+                // Alarm info bar
+                HStack {
+                    Text("Alarm")
+                        .font(NervRestTheme.Fonts.headline)
+                        .foregroundColor(NervRestTheme.Text.primary)
+                    Spacer()
+                    Text(alarmTime)
+                        .font(NervRestTheme.Fonts.headline)
+                        .foregroundColor(NervRestTheme.Text.primary)
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 14)
+                .background(NervRestTheme.Surface.cardBackground)
+                .cornerRadius(NervRestTheme.Radius.md)
+                .padding(.horizontal, 40)
+
+                Spacer().frame(height: 40)
+
+                // Primary button
+                Button(action: onShowAlternatives) {
+                    Text("Show me alternatives")
+                        .font(NervRestTheme.Fonts.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 18)
+                        .background(NervRestTheme.Arousal.color(for: arousalLevel))
+                        .cornerRadius(NervRestTheme.Radius.lg)
+                }
+                .padding(.horizontal, 24)
+
+                Spacer().frame(height: 16)
+
+                // Ghost button
+                Button(action: onFiveMoreMinutes) {
+                    Text("5 more minutes")
+                        .font(NervRestTheme.Fonts.body)
+                        .foregroundColor(NervRestTheme.Text.tertiary)
+                }
+
+                Spacer().frame(height: 40)
             }
-            .padding(.horizontal, NervRestTheme.Spacing.xl)
+            .opacity(contentReveal ? 1.0 : 0.0)
+            .offset(y: contentReveal ? 0 : 24)
         }
         .ignoresSafeArea()
+        .preferredColorScheme(.dark)
         .onAppear {
             performEntranceSequence()
+        }
+    }
+
+    // MARK: - Arousal Level
+
+    private var arousalLevel: ArousalLevel {
+        switch arousalScore {
+        case 0..<30: return .calm
+        case 30..<50: return .moderate
+        case 50..<70: return .elevated
+        case 70..<90: return .high
+        default: return .critical
         }
     }
 
@@ -78,7 +144,7 @@ struct ShieldOverlayScreen: View {
         .opacity(curtainDrop ? 1.0 : 0.0)
     }
 
-    // MARK: - Agent Glow (breathing aura)
+    // MARK: - Breathing Glow
 
     private var agentGlow: some View {
         Circle()
@@ -101,151 +167,23 @@ struct ShieldOverlayScreen: View {
             )
     }
 
-    // MARK: - Agent Character
-
-    private var agentSection: some View {
-        AgentCharacter(mood: "worried", size: 120)
-            .scaleEffect(pulseAgent ? 1.0 : 0.4)
-            .opacity(contentReveal ? 1.0 : 0.0)
-            .scaleEffect(breatheGlow ? 1.02 : 0.98)
-            .animation(
-                .easeInOut(duration: 3.0).repeatForever(autoreverses: true),
-                value: breatheGlow
-            )
-    }
-
-    // MARK: - Title
-
-    private var titleSection: some View {
-        Text("Time to wind down")
-            .font(NervRestTheme.Fonts.displayLarge)
-            .foregroundColor(NervRestTheme.Text.primary)
-            .multilineTextAlignment(.center)
-            .opacity(contentReveal ? 1.0 : 0.0)
-            .offset(y: contentReveal ? 0 : 24)
-    }
-
-    // MARK: - Subtitle (arousal score + HR)
-
-    private var subtitleSection: some View {
-        HStack(spacing: NervRestTheme.Spacing.lg) {
-            // Arousal score pill
-            HStack(spacing: NervRestTheme.Spacing.sm) {
-                Circle()
-                    .fill(NervRestTheme.Arousal.color(for: arousalScore))
-                    .frame(width: 8, height: 8)
-
-                Text(String(format: "%.1f", arousalScore))
-                    .font(NervRestTheme.Fonts.headline)
-                    .foregroundColor(NervRestTheme.Text.primary)
-
-                Text("arousal")
-                    .font(NervRestTheme.Fonts.micro)
-                    .foregroundColor(NervRestTheme.Text.tertiary)
-            }
-
-            // Divider dot
-            Circle()
-                .fill(NervRestTheme.Text.tertiary)
-                .frame(width: 3, height: 3)
-
-            // Heart rate pill
-            HStack(spacing: NervRestTheme.Spacing.sm) {
-                Image(systemName: "heart.fill")
-                    .font(.system(size: 12, weight: .semibold))
-                    .foregroundColor(NervRestTheme.Arousal.high)
-
-                Text("\(currentHR)")
-                    .font(NervRestTheme.Fonts.headline)
-                    .foregroundColor(NervRestTheme.Text.primary)
-
-                Text("BPM")
-                    .font(NervRestTheme.Fonts.micro)
-                    .foregroundColor(NervRestTheme.Text.tertiary)
-            }
-        }
-        .padding(.horizontal, NervRestTheme.Spacing.lg)
-        .padding(.vertical, NervRestTheme.Spacing.md)
-        .background(
-            Capsule()
-                .fill(Color.white.opacity(0.04))
-                .overlay(
-                    Capsule()
-                        .stroke(Color.white.opacity(0.08), lineWidth: 1)
-                )
-        )
-        .opacity(contentReveal ? 1.0 : 0.0)
-        .offset(y: contentReveal ? 0 : 16)
-    }
-
-    // MARK: - Buttons
-
-    private var buttonsSection: some View {
-        VStack(spacing: NervRestTheme.Spacing.md) {
-            // Primary: Show me alternatives
-            Button(action: onShowAlternatives) {
-                HStack(spacing: NervRestTheme.Spacing.sm) {
-                    Image(systemName: "sparkles")
-                        .font(.system(size: 16, weight: .semibold))
-
-                    Text("Show me alternatives")
-                        .font(NervRestTheme.Fonts.headline)
-                }
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, NervRestTheme.Spacing.md + 2)
-                .background(
-                    RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
-                        .fill(NervRestTheme.Accent.primary)
-                        .shadow(
-                            color: NervRestTheme.Accent.primary.opacity(0.5),
-                            radius: 20,
-                            y: 6
-                        )
-                )
-            }
-
-            // Secondary: 5 more minutes (ghost button)
-            Button(action: onFiveMoreMinutes) {
-                Text("5 more minutes")
-                    .font(NervRestTheme.Fonts.body)
-                    .foregroundColor(NervRestTheme.Text.tertiary)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, NervRestTheme.Spacing.md)
-                    .background(
-                        RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
-                            .stroke(Color.white.opacity(0.06), lineWidth: 1)
-                    )
-            }
-        }
-        .opacity(contentReveal ? 1.0 : 0.0)
-        .offset(y: contentReveal ? 0 : 24)
-    }
-
     // MARK: - Entrance Animation Sequence
 
     private func performEntranceSequence() {
-        // Phase 1: Curtain drops (background fades in like theater dimming)
+        // Phase 1: Curtain drops (background fades in)
         withAnimation(.easeIn(duration: 1.2)) {
             curtainDrop = true
         }
 
-        // Phase 2: Agent appears with spring
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            withAnimation(.spring(response: 0.8, dampingFraction: 0.65)) {
-                pulseAgent = true
-            }
-        }
-
-        // Phase 3: Content reveals
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+        // Phase 2: Content reveals
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
             withAnimation(.easeOut(duration: 0.7)) {
                 contentReveal = true
             }
         }
 
-        // Phase 4: Start breathing glow loop
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        // Phase 3: Start breathing glow loop
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
             breatheGlow = true
         }
     }
@@ -257,12 +195,12 @@ struct ShieldOverlayScreen: View {
 struct ShieldOverlayScreen_Previews: PreviewProvider {
     static var previews: some View {
         ShieldOverlayScreen(
-            arousalScore: 8.3,
+            arousalScore: 87,
             currentHR: 88,
+            alarmTime: "8:00 AM",
             onShowAlternatives: {},
             onFiveMoreMinutes: {}
         )
-        .preferredColorScheme(.dark)
     }
 }
 #endif
