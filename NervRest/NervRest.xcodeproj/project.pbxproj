@@ -63,6 +63,10 @@
 		F8874272B24CBBF520D1E3CF /* BiometricCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5374853957FE165557E0BA0 /* BiometricCard.swift */; };
 		F9BB4926BF84B73A53B2FD25 /* IslandMinimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CE4F0F9430F1F13C5627C4 /* IslandMinimal.swift */; };
 		F9C940E7B0E8B48201ED946D /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92704A49B371B14766C71744 /* Date+Formatting.swift */; };
+		B7E57DFD122D4BFB9E3BBAA0 /* video-1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EB1C575E5D8C4A23980343F8 /* video-1.mp4 */; };
+		13AA9289B9204EDABE98822F /* video-5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 247F8CE71E864686938F6D34 /* video-5.mp4 */; };
+		B9FA47E2DC524122B417B22A /* video-8.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4CB9506328994C619C5922F2 /* video-8.mp4 */; };
+		E02B4871636A4FBC9398B34B /* video-9.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EF7B7CDFB6CA4269B624F903 /* video-9.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,10 +167,14 @@
 		F369413D802469E21F82AAB5 /* ArousalScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArousalScore.swift; path = NervRest/Data/Models/ArousalScore.swift; sourceTree = SOURCE_ROOT; };
 		FC9D4DD090BCFDB31E841953 /* ArousalGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArousalGauge.swift; path = NervRest/UI/Components/ArousalGauge.swift; sourceTree = SOURCE_ROOT; };
 		FE824D629052767C19293E6A /* NervRestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NervRestApp.swift; path = NervRest/NervRestApp.swift; sourceTree = SOURCE_ROOT; };
+		EB1C575E5D8C4A23980343F8 /* video-1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NervRest/Resources/Videos/video-1.mp4"; sourceTree = "<group>"; };
+		247F8CE71E864686938F6D34 /* video-5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NervRest/Resources/Videos/video-5.mp4"; sourceTree = "<group>"; };
+		4CB9506328994C619C5922F2 /* video-8.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NervRest/Resources/Videos/video-8.mp4"; sourceTree = "<group>"; };
+		EF7B7CDFB6CA4269B624F903 /* video-9.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NervRest/Resources/Videos/video-9.mp4"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		1FE59B382F785917006C838A = {
+		1FE59B382F785917006C838A /* Exceptions for "NervRestWidgetExtension" folder in "NervRestWidgetExtensionExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -176,10 +184,29 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		1FE596E72F784497006C838A /* NervRest */ = {isa = PBXFileSystemSynchronizedRootGroup; path = NervRest; sourceTree = "<group>"; };
-		1FE596F52F784499006C838A /* NervRestTests */ = {isa = PBXFileSystemSynchronizedRootGroup; path = NervRestTests; sourceTree = "<group>"; };
-		1FE596FF2F784499006C838A /* NervRestUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; path = NervRestUITests; sourceTree = "<group>"; };
-		1FE59B2B2F785914006C838A /* NervRestWidgetExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (1FE59B382F785917006C838A, ); path = NervRestWidgetExtension; sourceTree = "<group>"; };
+		1FE596E72F784497006C838A /* NervRest */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NervRest;
+			sourceTree = "<group>";
+		};
+		1FE596F52F784499006C838A /* NervRestTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NervRestTests;
+			sourceTree = "<group>";
+		};
+		1FE596FF2F784499006C838A /* NervRestUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NervRestUITests;
+			sourceTree = "<group>";
+		};
+		1FE59B2B2F785914006C838A /* NervRestWidgetExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1FE59B382F785917006C838A /* Exceptions for "NervRestWidgetExtension" folder in "NervRestWidgetExtensionExtension" target */,
+			);
+			path = NervRestWidgetExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,7 +470,12 @@
 			files = (
 				0A594CDAA67A3728287DB139 /* app-stim-scores.json in Resources */,
 				92F24CA3B643545BC3F7778A /* evening-timeline.json in Resources */,
-			);
+			
+				B7E57DFD122D4BFB9E3BBAA0 /* video-1.mp4 in Resources */,
+				13AA9289B9204EDABE98822F /* video-5.mp4 in Resources */,
+				B9FA47E2DC524122B417B22A /* video-8.mp4 in Resources */,
+				E02B4871636A4FBC9398B34B /* video-9.mp4 in Resources */,
+);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1FE596F02F784499006C838A /* Resources */ = {

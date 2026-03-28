@@ -1,12 +1,3 @@
-//
-//  VideoFeedView.swift
-//  NervRest
-//
-//  Adapted from ShortVideoApp (open-source TikTok clone).
-//  Simplified: no bottom tab bar, no top navigation pills.
-//  Uses TabView for modern SwiftUI vertical paging.
-//
-
 import SwiftUI
 import AVKit
 
@@ -16,195 +7,80 @@ struct MockVideo: Identifiable {
     let id: Int
     let player: AVPlayer
     let resourceName: String
-    var replay: Bool = false
 }
 
-// MARK: - Video Carousel (vertical paging)
+// MARK: - Video Carousel (UIScrollView-based vertical paging)
 
-struct VideoCarouselView: View {
-    @State private var videos: [MockVideo] = []
-    @State private var currentIndex: Int = 0
+struct VideoCarouselView: UIViewRepresentable {
+    class Coordinator: NSObject, UIScrollViewDelegate {
+        var parent: VideoCarouselView
+        var currentIndex = 0
 
-    /// Only 4 videos to keep bundle size small.
-    private static let videoNames = ["video-1", "video-5", "video-8", "video-9"]
-
-    var body: some View {
-        GeometryReader { geo in
-            if videos.isEmpty {
-                Color.black
-                    .onAppear { loadVideos() }
-            } else {
-                TabView(selection: $currentIndex) {
-                    ForEach(videos) { video in
-                        ZStack {
-                            VideoPlayerRepresentable(player: video.player)
-                                .frame(width: geo.size.width, height: geo.size.height)
-                                .clipped()
-
-                            // Right-side social buttons overlay
-                            VStack {
-                                Spacer()
-                                HStack {
-                                    Spacer()
-                                    socialSidebar
-                                        .padding(.trailing, 12)
-                                        .padding(.bottom, geo.safeAreaInsets.bottom + 80)
-                                }
-                            }
-
-                            // Bottom caption overlay
-                            VStack {
-                                Spacer()
-                                captionOverlay
-                                    .padding(.leading, 16)
-                                    .padding(.trailing, 80)
-                                    .padding(.bottom, geo.safeAreaInsets.bottom + 16)
-                            }
-                        }
-                        .tag(video.id)
-                        .ignoresSafeArea()
-                    }
-                }
-                .tabViewStyle(.page(indexDisplayMode: .never))
-                .indexViewStyle(.page(backgroundDisplayMode: .never))
-                .rotationEffect(.degrees(-90))
-                .frame(width: geo.size.height, height: geo.size.width)
-                .position(x: geo.size.width / 2, y: geo.size.height / 2)
-                .ignoresSafeArea()
-                .onChange(of: currentIndex) { _, newIndex in
-                    handlePageChange(to: newIndex)
-                }
-            }
+        init(_ parent: VideoCarouselView) {
+            self.parent = parent
         }
-        .background(Color.black)
-        .ignoresSafeArea()
-    }
 
-    // MARK: - Social Sidebar
+        func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+            let newIndex = Int(scrollView.contentOffset.y / scrollView.frame.height)
+            guard newIndex != currentIndex, newIndex >= 0, newIndex < parent.videos.count else { return }
 
-    private var socialSidebar: some View {
-        VStack(spacing: 20) {
-            // Profile image
-            Button(action: {}) {
-                Image("image-profile-1")
-                    .renderingMode(.original)
-                    .resizable()
-                    .frame(width: 48, height: 48)
-                    .clipShape(Circle())
-                    .overlay(
-                        Circle().stroke(Color.white, lineWidth: 1.5)
-                    )
-            }
-
-            // Like
-            Button(action: {}) {
-                VStack(spacing: 4) {
-                    Image(systemName: "suit.heart.fill")
-                        .font(.system(size: 28))
-                        .foregroundColor(.white)
-                    Text("22.4k")
-                        .font(.system(size: 11, weight: .semibold))
-                        .foregroundColor(.white)
-                }
-            }
-
-            // Comment
-            Button(action: {}) {
-                VStack(spacing: 4) {
-                    Image(systemName: "message.fill")
-                        .font(.system(size: 26))
-                        .foregroundColor(.white)
-                    Text("1,021")
-                        .font(.system(size: 11, weight: .semibold))
-                        .foregroundColor(.white)
-                }
-            }
-
-            // Share
-            Button(action: {}) {
-                VStack(spacing: 4) {
-                    Image(systemName: "arrowshape.turn.up.right.fill")
-                        .font(.system(size: 26))
-                        .foregroundColor(.white)
-                    Text("Share")
-                        .font(.system(size: 11, weight: .semibold))
-                        .foregroundColor(.white)
-                }
-            }
-
-            // Bookmark
-            Button(action: {}) {
-                VStack(spacing: 4) {
-                    Image(systemName: "bookmark.fill")
-                        .font(.system(size: 24))
-                        .foregroundColor(.white)
-                    Text("Save")
-                        .font(.system(size: 11, weight: .semibold))
-                        .foregroundColor(.white)
-                }
-            }
+            // Pause old, play new
+            parent.videos[currentIndex].player.pause()
+            currentIndex = newIndex
+            let current = parent.videos[currentIndex]
+            current.player.seek(to: .zero)
+            current.player.play()
         }
     }
 
-    // MARK: - Caption Overlay
+    let videos: [MockVideo]
 
-    private var captionOverlay: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            HStack(spacing: 6) {
-                Text("@creator_name")
-                    .font(.system(size: 15, weight: .bold))
-                    .foregroundColor(.white)
-                Text("· Follow")
-                    .font(.system(size: 13, weight: .semibold))
-                    .foregroundColor(.white.opacity(0.9))
-            }
-
-            Text("Late night scrolling vibes #fyp #relatable #nightowl")
-                .font(.system(size: 13))
-                .foregroundColor(.white.opacity(0.9))
-                .lineLimit(2)
-
-            HStack(spacing: 6) {
-                Image(systemName: "music.note")
-                    .font(.system(size: 11))
-                    .foregroundColor(.white)
-                Text("Original Sound - creator_name")
-                    .font(.system(size: 12))
-                    .foregroundColor(.white.opacity(0.85))
-                    .lineLimit(1)
-            }
-        }
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
     }
 
-    // MARK: - Playback Control
+    func makeUIView(context: Context) -> UIScrollView {
+        let scrollView = UIScrollView()
+        scrollView.isPagingEnabled = true
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.delegate = context.coordinator
+        scrollView.backgroundColor = .black
 
-    private func loadVideos() {
-        videos = Self.videoNames.enumerated().compactMap { index, name in
-            guard let path = Bundle.main.path(forResource: name, ofType: "mp4") else {
-                return nil
-            }
-            let player = AVPlayer(url: URL(fileURLWithPath: path))
-            player.isMuted = true // mute for demo
-            return MockVideo(id: index, player: player, resourceName: name)
+        let screenWidth = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
+
+        scrollView.contentSize = CGSize(
+            width: screenWidth,
+            height: screenHeight * CGFloat(videos.count)
+        )
+
+        for (index, video) in videos.enumerated() {
+            let playerVC = AVPlayerViewController()
+            playerVC.player = video.player
+            playerVC.showsPlaybackControls = false
+            playerVC.videoGravity = .resizeAspectFill
+            playerVC.view.backgroundColor = .black
+            playerVC.view.frame = CGRect(
+                x: 0,
+                y: screenHeight * CGFloat(index),
+                width: screenWidth,
+                height: screenHeight
+            )
+            scrollView.addSubview(playerVC.view)
         }
-        // Auto-play first video
+
+        // Play first video
         if let first = videos.first {
             first.player.play()
             loopVideo(first.player)
         }
+
+        return scrollView
     }
 
-    private func handlePageChange(to newIndex: Int) {
-        for video in videos {
-            video.player.pause()
-            video.player.seek(to: .zero)
-        }
-        guard newIndex >= 0, newIndex < videos.count else { return }
-        let current = videos[newIndex]
-        current.player.seek(to: .zero)
-        current.player.play()
-        loopVideo(current.player)
-    }
+    func updateUIView(_ uiView: UIScrollView, context: Context) {}
 
     private func loopVideo(_ player: AVPlayer) {
         NotificationCenter.default.addObserver(
@@ -218,34 +94,115 @@ struct VideoCarouselView: View {
     }
 }
 
-// MARK: - AVPlayer UIViewControllerRepresentable
-
-struct VideoPlayerRepresentable: UIViewControllerRepresentable {
-    let player: AVPlayer
-
-    func makeUIViewController(context: Context) -> AVPlayerViewController {
-        let controller = AVPlayerViewController()
-        controller.player = player
-        controller.showsPlaybackControls = false
-        controller.videoGravity = .resizeAspectFill
-        controller.view.backgroundColor = .black
-        return controller
-    }
-
-    func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {
-        // Player instance doesn't change — nothing to update.
-    }
-}
-
-// MARK: - Wrapper (public API)
+// MARK: - Wrapper with overlays
 
 struct VideoCarouselWrapper: View {
+    @State private var videos: [MockVideo] = []
+
+    private static let videoNames = ["video-1", "video-5", "video-8", "video-9"]
+
     var body: some View {
-        VideoCarouselView()
+        ZStack {
+            if videos.isEmpty {
+                Color.black
+                    .ignoresSafeArea()
+                    .onAppear { loadVideos() }
+            } else {
+                VideoCarouselView(videos: videos)
+                    .ignoresSafeArea()
+
+                // TikTok-style UI overlays
+                VStack {
+                    Spacer()
+                    HStack(alignment: .bottom) {
+                        // Bottom-left caption
+                        captionOverlay
+                            .padding(.leading, 16)
+                            .padding(.bottom, 16)
+
+                        Spacer()
+
+                        // Right sidebar
+                        socialSidebar
+                            .padding(.trailing, 12)
+                            .padding(.bottom, 80)
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - Social Sidebar
+
+    private var socialSidebar: some View {
+        VStack(spacing: 20) {
+            Button(action: {}) {
+                Image("image-profile-1")
+                    .renderingMode(.original)
+                    .resizable()
+                    .frame(width: 48, height: 48)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 1.5))
+            }
+
+            sidebarButton(icon: "suit.heart.fill", label: "22.4k")
+            sidebarButton(icon: "message.fill", label: "1,021")
+            sidebarButton(icon: "arrowshape.turn.up.right.fill", label: "Share")
+            sidebarButton(icon: "bookmark.fill", label: "Save")
+        }
+    }
+
+    private func sidebarButton(icon: String, label: String) -> some View {
+        Button(action: {}) {
+            VStack(spacing: 4) {
+                Image(systemName: icon)
+                    .font(.system(size: 26))
+                    .foregroundColor(.white)
+                Text(label)
+                    .font(.system(size: 11, weight: .semibold))
+                    .foregroundColor(.white)
+            }
+        }
+    }
+
+    // MARK: - Caption
+
+    private var captionOverlay: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack(spacing: 6) {
+                Text("@creator_name")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundColor(.white)
+                Text("· Follow")
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundColor(.white.opacity(0.9))
+            }
+            Text("Late night scrolling vibes #fyp #relatable")
+                .font(.system(size: 13))
+                .foregroundColor(.white.opacity(0.9))
+                .lineLimit(2)
+            HStack(spacing: 6) {
+                Image(systemName: "music.note")
+                    .font(.system(size: 11))
+                Text("Original Sound - creator_name")
+                    .font(.system(size: 12))
+            }
+            .foregroundColor(.white.opacity(0.85))
+        }
+        .padding(.trailing, 60)
+    }
+
+    // MARK: - Load
+
+    private func loadVideos() {
+        videos = Self.videoNames.enumerated().compactMap { index, name in
+            guard let path = Bundle.main.path(forResource: name, ofType: "mp4") else { return nil }
+            let player = AVPlayer(url: URL(fileURLWithPath: path))
+            player.isMuted = true
+            return MockVideo(id: index, player: player, resourceName: name)
+        }
     }
 }
-
-// MARK: - Preview
 
 #Preview {
     VideoCarouselWrapper()
