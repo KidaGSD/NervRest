@@ -21,6 +21,12 @@ class LiveActivityManager: ObservableObject, LiveActivityManaging {
     private var currentActivity: Activity<NervRestActivityAttributes>?
 
     func startActivity(userName: String) {
+        // Guard: skip if Live Activities aren't supported or widget extension isn't configured
+        guard ActivityAuthorizationInfo().areActivitiesEnabled else {
+            print("Live Activities not enabled — skipping")
+            return
+        }
+
         let attributes = NervRestActivityAttributes(sessionStartTime: Date(), userName: userName)
         let initialState = NervRestActivityAttributes.ContentState(
             arousalScore: 1.0, heartRate: 64, hrv: 55,
