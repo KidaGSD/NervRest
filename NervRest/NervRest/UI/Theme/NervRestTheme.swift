@@ -2,13 +2,13 @@ import SwiftUI
 
 enum NervRestTheme {
 
-    // MARK: - Arousal Spectrum (teal -> red, like star temperature)
+    // MARK: - Arousal Spectrum (Warmth → Ember, warm & sleep-safe)
     enum Arousal {
-        static let calm = Color(hex: "#1D9E75")         // deep teal
-        static let moderate = Color(hex: "#4CAF50")      // forest green
-        static let elevated = Color(hex: "#EF9F27")      // warm amber
-        static let high = Color(hex: "#D85A30")          // burnt coral
-        static let critical = Color(hex: "#E24B4A")      // signal red
+        static let calm = Color(hex: "#402959")         // dusk purple — relaxed
+        static let moderate = Color(hex: "#52312F")      // warmth brown — mild
+        static let elevated = Color(hex: "#D35200")      // ember orange — rising
+        static let high = Color(hex: "#842B00")          // deep ember — high alert
+        static let critical = Color(hex: "#E18050")      // bright ember — critical
 
         static func color(for level: ArousalLevel) -> Color {
             switch level {
@@ -31,19 +31,26 @@ enum NervRestTheme {
         }
     }
 
-    // MARK: - Surfaces (Midnight Observatory)
+    // MARK: - Surfaces (Dusk Observatory)
     enum Surface {
-        static let background = Color(hex: "#0D1117")       // deep space
-        static let cardBackground = Color(hex: "#161B22")    // raised card
-        static let cardBorder = Color(hex: "#21262D")        // subtle edge
-        static let elevated = Color(hex: "#1C2128")          // modal/sheet
+        static let background = Color(hex: "#171120")       // dusk 100
+        static let cardBackground = Color(hex: "#281C38")    // dusk 200
+        static let cardBorder = Color(hex: "#402959")        // dusk 300
+        static let elevated = Color(hex: "#1C0508")          // warmth dark
     }
 
-    // MARK: - Text
+    // MARK: - Text (Dusk light end + Ember warm)
     enum Text {
-        static let primary = Color(hex: "#E6EDF3")
-        static let secondary = Color(hex: "#8B949E")
-        static let tertiary = Color(hex: "#484F58")
+        static let primary = Color(hex: "#CFBEDB")       // dusk 500 — headings/body
+        static let secondary = Color(hex: "#A27DBC")      // dusk 400 — labels
+        static let tertiary = Color(hex: "#52312F")       // warmth 500 — hints
+    }
+
+    // MARK: - Accent (buttons, glows, interactive elements)
+    enum Accent {
+        static let primary = Color(hex: "#D35200")       // ember 300 — main CTA
+        static let secondary = Color(hex: "#A27DBC")      // dusk 400 — secondary actions
+        static let glow = Color(hex: "#F8C8A3")           // ember 500 — warm glow
     }
 
     // MARK: - Typography (SF Rounded — warm, approachable)
