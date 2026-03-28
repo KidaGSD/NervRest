@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo:*)",
+      "Bash(gh api:*)",
+      "Bash(tmux -V)",
+      "Bash(npm install:*)",
+      "Bash(npx cc-subagent-codex:*)",
+      "Bash(git clone:*)",
+      "Read(//Users/huangjunda/.cc-subagent-codex/**)",
+      "Bash(bash install.sh)",
+      "Bash(source ~/.zshrc)",
+      "Read(//Users/huangjunda/**)",
+      "mcp__claude_ai_Figma__get_figjam",
+      "mcp__plugin_figma_figma__get_figjam",
+      "Bash",
+      "Read",
+      "Edit",
+      "Write",
+      "WebFetch",
+      "Grep",
+      "Glob",
+      "LS",
+      "MultiEdit",
+      "NotebookRead",
+      "NotebookEdit",
+      "TodoRead",
+      "TodoWrite",
+      "WebSearch",
+      "mcp__jobspy__search_jobs",
+      "Skill(youtube-transcribe-skill)",
+      "Bash(git:*)",
+      "Bash(gh auth:*)",
+      "Bash(gh repo:*)",
+      "Bash(sshpass:*)",
+      "mcp__plugin_superpowers-chrome_chrome__use_browser"
+    ]
+  }
+}
