@@ -126,10 +126,19 @@ struct RampDownScreen: View {
             }
             .background(
                 RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
-                    .fill(NervRestTheme.Surface.cardBackground)
+                    .fill(
+                        LinearGradient(
+                            gradient: Gradient(colors: [
+                                NervRestTheme.Surface.cardBackground,
+                                NervRestTheme.Surface.cardBackground.opacity(0.6)
+                            ]),
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
+                    )
                     .overlay(
                         RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
-                            .stroke(NervRestTheme.Surface.cardBorder, lineWidth: 1)
+                            .stroke(NervRestTheme.Surface.cardBorder.opacity(0.3), lineWidth: 0.5)
                     )
             )
         }
