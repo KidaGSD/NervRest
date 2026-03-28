@@ -69,14 +69,14 @@ struct HomeScreen: View {
                             value: "\(viewModel.heartRate)",
                             unit: "BPM",
                             icon: "heart.fill",
-                            color: NervRestTheme.Arousal.high
+                            color: NervRestTheme.Arousal.elevated
                         )
                         BiometricCard(
                             title: "HRV",
                             value: "\(viewModel.hrv)",
                             unit: "ms",
                             icon: "waveform.path.ecg",
-                            color: NervRestTheme.Arousal.calm
+                            color: NervRestTheme.Accent.secondary
                         )
                     }
                     .padding(.horizontal, NervRestTheme.Spacing.md)
@@ -135,13 +135,13 @@ struct HomeScreen: View {
             .background(
                 RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
                     .fill(viewModel.isMonitoring
-                          ? NervRestTheme.Arousal.high
-                          : NervRestTheme.Arousal.calm)
+                          ? NervRestTheme.Arousal.elevated
+                          : NervRestTheme.Accent.primary)
             )
             .shadow(
                 color: (viewModel.isMonitoring
-                        ? NervRestTheme.Arousal.high
-                        : NervRestTheme.Arousal.calm).opacity(0.35),
+                        ? NervRestTheme.Arousal.elevated
+                        : NervRestTheme.Accent.primary).opacity(0.35),
                 radius: 10,
                 y: 4
             )
