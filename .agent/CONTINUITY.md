@@ -22,4 +22,8 @@
 
 ## [OUTCOMES]
 
-(none yet)
+- **2026-03-28T15:00Z** `[CODE]` Created "App Screens — V3 Final" page (id: `2064:156`) in Figma file `5XRoxmBUA82ZFJMZDxwbcJ`. 3 sections built from scratch:
+  - **DEMO FLOW**: 6 phone screens (TikTok Feed, Feed Dimming, Moon Reveal, Shield Screen, Recommendations, Recovery) with arrow connectors and captions.
+  - **IN-APP EXPERIENCE**: Luna Splash + Luna Chat screens.
+  - **DYNAMIC ISLAND**: 5 compact pill states (Calm→Critical) + expanded view with biometrics and CTA.
+  - All screens use Dusk palette (#171120 bg, #281C38 cards, #402959 borders, #D35200 ember CTA), Inter font family, 393x852 phone frames with cornerRadius 44 and 3px strokes.

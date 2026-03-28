@@ -166,7 +166,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		1FE59B382F785917006C838A /* Exceptions for "NervRestWidgetExtension" folder in "NervRestWidgetExtensionExtension" target */ = {
+		1FE59B382F785917006C838A = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -176,29 +176,10 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		1FE596E72F784497006C838A /* NervRest */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = NervRest;
-			sourceTree = "<group>";
-		};
-		1FE596F52F784499006C838A /* NervRestTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = NervRestTests;
-			sourceTree = "<group>";
-		};
-		1FE596FF2F784499006C838A /* NervRestUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = NervRestUITests;
-			sourceTree = "<group>";
-		};
-		1FE59B2B2F785914006C838A /* NervRestWidgetExtension */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				1FE59B382F785917006C838A /* Exceptions for "NervRestWidgetExtension" folder in "NervRestWidgetExtensionExtension" target */,
-			);
-			path = NervRestWidgetExtension;
-			sourceTree = "<group>";
-		};
+		1FE596E72F784497006C838A /* NervRest */ = {isa = PBXFileSystemSynchronizedRootGroup; path = NervRest; sourceTree = "<group>"; };
+		1FE596F52F784499006C838A /* NervRestTests */ = {isa = PBXFileSystemSynchronizedRootGroup; path = NervRestTests; sourceTree = "<group>"; };
+		1FE596FF2F784499006C838A /* NervRestUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; path = NervRestUITests; sourceTree = "<group>"; };
+		1FE59B2B2F785914006C838A /* NervRestWidgetExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (1FE59B382F785917006C838A, ); path = NervRestWidgetExtension; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -730,6 +711,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NSSupportsLiveActivities = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Kida.NervRest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -762,6 +744,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NSSupportsLiveActivities = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Kida.NervRest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
