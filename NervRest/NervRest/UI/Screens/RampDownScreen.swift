@@ -84,9 +84,9 @@ struct RampDownScreen: View {
             onSuggestionTapped(suggestion)
         } label: {
             HStack(spacing: 0) {
-                // Teal accent left edge
+                // Accent left edge
                 RoundedRectangle(cornerRadius: 2)
-                    .fill(NervRestTheme.Arousal.calm)
+                    .fill(NervRestTheme.Accent.secondary)
                     .frame(width: 4)
                     .padding(.vertical, NervRestTheme.Spacing.sm)
 
@@ -110,7 +110,7 @@ struct RampDownScreen: View {
                             icon: "heart.fill",
                             value: "-\(Int(suggestion.predictedHRDrop))",
                             label: "BPM",
-                            color: NervRestTheme.Arousal.calm
+                            color: NervRestTheme.Accent.secondary
                         )
 
                         metricView(
@@ -202,7 +202,7 @@ struct RampDownScreen: View {
                     } label: {
                         Image(systemName: "arrow.up.circle.fill")
                             .font(.system(size: 28))
-                            .foregroundColor(NervRestTheme.Arousal.calm)
+                            .foregroundColor(NervRestTheme.Accent.primary)
                     }
                     .transition(.scale.combined(with: .opacity))
                 }
@@ -215,7 +215,7 @@ struct RampDownScreen: View {
                         RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
                             .stroke(
                                 isTextFieldFocused
-                                    ? NervRestTheme.Arousal.calm.opacity(0.5)
+                                    ? NervRestTheme.Accent.secondary.opacity(0.5)
                                     : NervRestTheme.Surface.cardBorder,
                                 lineWidth: 1
                             )
