@@ -12,6 +12,9 @@
 		0E344D8B9D75EFB675DE3FAE /* IslandCompactLeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2244DBB058C937527A1A40 /* IslandCompactLeading.swift */; };
 		11F340E4A026244A22B2A181 /* StaticStimScoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58494D569872CE98DC9363E7 /* StaticStimScoreProvider.swift */; };
 		1F7541CA9826B7333684B52B /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C4C8E9AD6DBC7C78C58D2 /* SessionManager.swift */; };
+		1FE59B282F785914006C838A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE59B272F785914006C838A /* WidgetKit.framework */; };
+		1FE59B2A2F785914006C838A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE59B292F785914006C838A /* SwiftUI.framework */; };
+		1FE59B372F785917006C838A /* NervRestWidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1FE59B252F785914006C838A /* NervRestWidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		30194966B3225100724A1A6C /* ArousalGauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9D4DD090BCFDB31E841953 /* ArousalGauge.swift */; };
 		31754104915D178EE139C668 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C24C7DAFFF28CD205FD638 /* HomeScreen.swift */; };
 		362B4DC49413B3D3DA3646EA /* BiometricReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98B4ECDAF60B2D48C29553F /* BiometricReading.swift */; };
@@ -77,7 +80,28 @@
 			remoteGlobalIDString = 1FE596E42F784497006C838A;
 			remoteInfo = NervRest;
 		};
+		1FE59B352F785917006C838A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FE596DD2F784497006C838A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FE59B242F785914006C838A;
+			remoteInfo = NervRestWidgetExtensionExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1FE59B3C2F785917006C838A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1FE59B372F785917006C838A /* NervRestWidgetExtensionExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		011A40039D852F915BFA3EDB /* RealContextProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealContextProvider.swift; path = NervRest/Data/Simulated/RealContextProvider.swift; sourceTree = SOURCE_ROOT; };
@@ -91,6 +115,9 @@
 		1FE596E52F784497006C838A /* NervRest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NervRest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE596F22F784499006C838A /* NervRestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NervRestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE596FC2F784499006C838A /* NervRestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NervRestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FE59B252F785914006C838A /* NervRestWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NervRestWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FE59B272F785914006C838A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		1FE59B292F785914006C838A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		203341F8AC37DAB99372F907 /* IslandPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IslandPreview.swift; path = NervRest/UI/Components/IslandPreview.swift; sourceTree = SOURCE_ROOT; };
 		211A4C66A2AE530F84379759 /* StimScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StimScoreBadge.swift; path = NervRest/UI/Components/StimScoreBadge.swift; sourceTree = SOURCE_ROOT; };
 		22434B609E4956AA9BF5FC13 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewModel.swift; path = NervRest/Logic/ViewModels/HomeViewModel.swift; sourceTree = SOURCE_ROOT; };
@@ -138,6 +165,16 @@
 		FE824D629052767C19293E6A /* NervRestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NervRestApp.swift; path = NervRest/NervRestApp.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1FE59B382F785917006C838A /* Exceptions for "NervRestWidgetExtension" folder in "NervRestWidgetExtensionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 1FE59B242F785914006C838A /* NervRestWidgetExtensionExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		1FE596E72F784497006C838A /* NervRest */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -152,6 +189,14 @@
 		1FE596FF2F784499006C838A /* NervRestUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = NervRestUITests;
+			sourceTree = "<group>";
+		};
+		1FE59B2B2F785914006C838A /* NervRestWidgetExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1FE59B382F785917006C838A /* Exceptions for "NervRestWidgetExtension" folder in "NervRestWidgetExtensionExtension" target */,
+			);
+			path = NervRestWidgetExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -171,6 +216,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1FE59B222F785914006C838A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FE59B2A2F785914006C838A /* SwiftUI.framework in Frameworks */,
+				1FE59B282F785914006C838A /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -180,6 +234,8 @@
 				1FE596E72F784497006C838A /* NervRest */,
 				1FE596F52F784499006C838A /* NervRestTests */,
 				1FE596FF2F784499006C838A /* NervRestUITests */,
+				1FE59B2B2F785914006C838A /* NervRestWidgetExtension */,
+				1FE59B262F785914006C838A /* Frameworks */,
 				1FE596E62F784497006C838A /* Products */,
 				60E34D72B01CCC57B4569D5E /* AgentCharacter.swift */,
 				BCE14E86B81903D97ADA0FC8 /* Color+Hex.swift */,
@@ -243,8 +299,18 @@
 				1FE596E52F784497006C838A /* NervRest.app */,
 				1FE596F22F784499006C838A /* NervRestTests.xctest */,
 				1FE596FC2F784499006C838A /* NervRestUITests.xctest */,
+				1FE59B252F785914006C838A /* NervRestWidgetExtensionExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1FE59B262F785914006C838A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1FE59B272F785914006C838A /* WidgetKit.framework */,
+				1FE59B292F785914006C838A /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,10 +322,12 @@
 			buildPhases = (
 				1FE596E12F784497006C838A /* Sources */,
 				1FE596E32F784497006C838A /* Resources */,
+				1FE59B3C2F785917006C838A /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1FE59B362F785917006C838A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				1FE596E72F784497006C838A /* NervRest */,
@@ -317,6 +385,28 @@
 			productReference = 1FE596FC2F784499006C838A /* NervRestUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		1FE59B242F785914006C838A /* NervRestWidgetExtensionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FE59B392F785917006C838A /* Build configuration list for PBXNativeTarget "NervRestWidgetExtensionExtension" */;
+			buildPhases = (
+				1FE59B212F785914006C838A /* Sources */,
+				1FE59B222F785914006C838A /* Frameworks */,
+				1FE59B232F785914006C838A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1FE59B2B2F785914006C838A /* NervRestWidgetExtension */,
+			);
+			name = NervRestWidgetExtensionExtension;
+			packageProductDependencies = (
+			);
+			productName = NervRestWidgetExtensionExtension;
+			productReference = 1FE59B252F785914006C838A /* NervRestWidgetExtensionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -338,6 +428,9 @@
 						CreatedOnToolsVersion = 26.2;
 						TestTargetID = 1FE596E42F784497006C838A;
 					};
+					1FE59B242F785914006C838A = {
+						CreatedOnToolsVersion = 26.2;
+					};
 				};
 			};
 			buildConfigurationList = 1FE596E02F784497006C838A /* Build configuration list for PBXProject "NervRest" */;
@@ -357,6 +450,7 @@
 				1FE596E42F784497006C838A /* NervRest */,
 				1FE596F12F784499006C838A /* NervRestTests */,
 				1FE596FB2F784499006C838A /* NervRestUITests */,
+				1FE59B242F785914006C838A /* NervRestWidgetExtensionExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -379,6 +473,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1FE596FA2F784499006C838A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FE59B232F785914006C838A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -460,6 +561,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1FE59B212F785914006C838A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -472,6 +580,11 @@
 			isa = PBXTargetDependency;
 			target = 1FE596E42F784497006C838A /* NervRest */;
 			targetProxy = 1FE596FD2F784499006C838A /* PBXContainerItemProxy */;
+		};
+		1FE59B362F785917006C838A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FE59B242F785914006C838A /* NervRestWidgetExtensionExtension */;
+			targetProxy = 1FE59B352F785917006C838A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -745,6 +858,66 @@
 			};
 			name = Release;
 		};
+		1FE59B3A2F785917006C838A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GH6FHBA4XA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NervRestWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NervRestWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kida.NervRest.NervRestWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1FE59B3B2F785917006C838A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GH6FHBA4XA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NervRestWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NervRestWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Kida.NervRest.NervRestWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -780,6 +953,15 @@
 			buildConfigurations = (
 				1FE5970D2F784499006C838A /* Debug */,
 				1FE5970E2F784499006C838A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FE59B392F785917006C838A /* Build configuration list for PBXNativeTarget "NervRestWidgetExtensionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FE59B3A2F785917006C838A /* Debug */,
+				1FE59B3B2F785917006C838A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
