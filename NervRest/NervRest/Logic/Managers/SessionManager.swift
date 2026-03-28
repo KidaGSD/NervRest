@@ -14,14 +14,20 @@ class SessionManager: ObservableObject {
 
     private let stimEngine: StimulationEngine
     private let mismatchDetector: MismatchDetector
+    private let interventionScheduler: InterventionScheduler
     private let biometricProvider: SimulatedBiometricProvider?
+    private let appUsageProvider: SimulatedAppUsageProvider?
 
     init(stimEngine: StimulationEngine,
          mismatchDetector: MismatchDetector,
-         biometricProvider: SimulatedBiometricProvider? = nil) {
+         interventionScheduler: InterventionScheduler,
+         biometricProvider: SimulatedBiometricProvider? = nil,
+         appUsageProvider: SimulatedAppUsageProvider? = nil) {
         self.stimEngine = stimEngine
         self.mismatchDetector = mismatchDetector
+        self.interventionScheduler = interventionScheduler
         self.biometricProvider = biometricProvider
+        self.appUsageProvider = appUsageProvider
     }
 
     func startSession() {
@@ -45,7 +51,17 @@ class SessionManager: ObservableObject {
     private func tick() {
         tickCount += 1
         elapsedSeconds = Int(Double(tickCount) * tickInterval)
+
+        // Advance app usage to match simulated time (each tick ≈ 1 minute in sim).
+        // Timeline base is today at 19:00; offset by tickCount minutes.
+        if let appUsageProvider {
+            let base = Calendar.current.date(bySettingHour: 19, minute: 0, second: 0, of: Date())!
+            let simDate = base.addingTimeInterval(TimeInterval(tickCount * 60))
+            appUsageProvider.advanceToEvent(at: simDate)
+        }
+
         stimEngine.updateScore()
         mismatchDetector.check()
+        interventionScheduler.evaluate()
     }
 }

@@ -2,6 +2,8 @@ import Foundation
 import Combine
 
 class AppContainer: ObservableObject {
+    @Published var pendingNavigation: AppRoute?
+
     // Data Layer
     let biometricProvider: SimulatedBiometricProvider
     let appUsageProvider: SimulatedAppUsageProvider
@@ -72,7 +74,9 @@ class AppContainer: ObservableObject {
         let session = SessionManager(
             stimEngine: stimEngine,
             mismatchDetector: mismatchDet,
-            biometricProvider: bio
+            interventionScheduler: scheduler,
+            biometricProvider: bio,
+            appUsageProvider: app
         )
         self.sessionManager = session
 
@@ -93,6 +97,10 @@ class AppContainer: ObservableObject {
 
         let rampDownVM = RampDownViewModel()
         self.rampDownViewModel = rampDownVM
+
+        rampDownVM.onSuggestionSelected = { [weak scheduler] in
+            scheduler?.userChoseRampDown()
+        }
 
         // Bind engine updates to home view model
         stimEngine.$currentScore
@@ -132,6 +140,21 @@ class AppContainer: ObservableObject {
                     currentApp: app?.currentApp?.appName ?? "None",
                     minutesUntilAlarm: ctx?.currentContext.minutesUntilAlarm
                 )
+            }
+            .store(in: &cancellables)
+
+        // Bind intervention phase to navigation
+        scheduler.$currentPhase
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] phase in
+                switch phase {
+                case .strongNudge:
+                    self?.pendingNavigation = .mismatchDetail
+                case .intervention:
+                    self?.pendingNavigation = .shieldOverlay
+                case .monitoring, .gentleNudge, .recovery:
+                    break
+                }
             }
             .store(in: &cancellables)
     }

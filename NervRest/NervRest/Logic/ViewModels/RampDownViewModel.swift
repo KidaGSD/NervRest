@@ -6,6 +6,12 @@ class RampDownViewModel: ObservableObject {
     @Published var freeTextInput: String = ""
     @Published var isLoading: Bool = false
 
+    var onSuggestionSelected: (() -> Void)?
+
+    func selectSuggestion(_ suggestion: RampDownSuggestion) {
+        onSuggestionSelected?()
+    }
+
     func loadMockSuggestions() {
         suggestions = [
             RampDownSuggestion(

@@ -20,4 +20,19 @@
 ## [PLANS]
 
 - Task 1 & 2 (Models + Protocols) are assumed complete — files exist in `Data/Models/` and `Data/Providers/`.
-- Next tasks: Logic layer engines, UI components, App entry point / DI container.
+- Task 3 (Simulated data providers) complete.
+- Final integration (AppContainer, AppRouter, NervRestApp) complete and building.
+
+## [OUTCOMES]
+
+- **2026-03-28T14:10Z** [CODE] ShieldOverlayScreen color migration to Dusk/Ember palette complete. Build succeeded (iPhone 17 Simulator).
+  - Background: `#050508` → `#0A0510` (purple-tinted near-black), `#0A0E1A` → `#171120` (dusk 100)
+  - Agent glow: `Arousal.high` → `Accent.glow` (#F8C8A3 warm ember)
+  - Primary button: `Arousal.calm` → `Accent.primary` (#D35200 ember) for fill and shadow
+- **2026-03-28T13:45Z** [CODE] Final integration verified — all files already in place and BUILD SUCCEEDED.
+  - `AppContainer.swift` — DI container wiring all providers, engines, managers, and view models with Combine bindings.
+  - `UI/Navigation/AppRouter.swift` — NavigationPath-based router with AppRoute enum.
+  - `NervRestApp.swift` — @main entry point with NavigationStack, deep link handling, and notification setup.
+  - `LiveActivityManager` already conforms to `LiveActivityManaging`; `NotificationManager` already conforms to `NotificationManaging`.
+  - No ContentView.swift found (already removed or never created).
+  - Build warnings: duplicate build file entries in Xcode project (cosmetic only, does not affect compilation).

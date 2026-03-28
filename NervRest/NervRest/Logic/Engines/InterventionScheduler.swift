@@ -49,10 +49,10 @@ class InterventionScheduler: ObservableObject {
     private let liveActivityManager: LiveActivityManaging
 
     // Configurable thresholds
-    var nudgeThreshold: Double = 6.0         // arousal score to trigger gentle nudge
-    var strongNudgeThreshold: Double = 7.5   // arousal score for strong nudge
-    var interventionThreshold: Double = 8.5  // arousal score to trigger shield
-    var nudgeCooldownSeconds: TimeInterval = 300  // 5 min between nudges
+    var nudgeThreshold: Double = 5.5         // was 6.0
+    var strongNudgeThreshold: Double = 7.0   // was 7.5
+    var interventionThreshold: Double = 8.0  // was 8.5
+    var nudgeCooldownSeconds: TimeInterval = 15   // 15s for demo (was 300)
 
     private var lastNudgeTime: Date?
 

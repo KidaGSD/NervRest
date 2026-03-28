@@ -1,9 +1,34 @@
 import SwiftUI
+import Combine
+import UserNotifications
+
+class NotificationDelegate: NSObject, ObservableObject, UNUserNotificationCenterDelegate {
+    var onWindDown: (() -> Void)?
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.actionIdentifier == "WIND_DOWN" ||
+           response.actionIdentifier == UNNotificationDefaultActionIdentifier {
+            DispatchQueue.main.async {
+                self.onWindDown?()
+            }
+        }
+        completionHandler()
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound])
+    }
+}
 
 @main
 struct NervRestApp: App {
     @StateObject private var container = AppContainer()
     @StateObject private var router = AppRouter()
+    @StateObject private var notificationDelegate = NotificationDelegate()
 
     var body: some Scene {
         WindowGroup {
@@ -20,6 +45,9 @@ struct NervRestApp: App {
                             )
                         case .rampDown:
                             RampDownScreen(viewModel: container.rampDownViewModel)
+                                .onAppear {
+                                    container.rampDownViewModel.loadMockSuggestions()
+                                }
                         case .shieldOverlay:
                             ShieldOverlayScreen(
                                 arousalScore: container.homeViewModel.arousalScore,
@@ -40,9 +68,19 @@ struct NervRestApp: App {
                 default: break
                 }
             }
+            .onChange(of: container.pendingNavigation) { _, route in
+                if let route = route {
+                    router.navigate(to: route)
+                    container.pendingNavigation = nil
+                }
+            }
             .task {
                 await container.notificationManager.requestPermission()
                 container.notificationManager.registerCategories()
+                UNUserNotificationCenter.current().delegate = notificationDelegate
+                notificationDelegate.onWindDown = {
+                    router.navigate(to: .mismatchDetail)
+                }
             }
         }
     }

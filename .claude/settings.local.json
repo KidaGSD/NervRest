@@ -33,7 +33,9 @@
       "Bash(gh auth:*)",
       "Bash(gh repo:*)",
       "Bash(sshpass:*)",
-      "mcp__plugin_superpowers-chrome_chrome__use_browser"
+      "mcp__plugin_superpowers-chrome_chrome__use_browser",
+      "mcp__plugin_figma_figma__use_figma",
+      "mcp__plugin_figma_figma__get_screenshot"
     ]
   }
 }
