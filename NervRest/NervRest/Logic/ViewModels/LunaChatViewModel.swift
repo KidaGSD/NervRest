@@ -2,6 +2,13 @@ import Foundation
 import Combine
 import SwiftUI
 
+struct ChatMessage: Identifiable {
+    let id = UUID()
+    let text: String
+    let isUser: Bool
+    let timestamp = Date()
+}
+
 class LunaChatViewModel: ObservableObject {
     @Published var userName: String = "there"
     @Published var greeting: String = ""
@@ -9,6 +16,7 @@ class LunaChatViewModel: ObservableObject {
     @Published var inputText: String = ""
     @Published var showGreeting: Bool = false
     @Published var showInput: Bool = false
+    @Published var messages: [ChatMessage] = []
 
     func loadGreeting() {
         let hour = Calendar.current.component(.hour, from: Date())
@@ -31,6 +39,20 @@ class LunaChatViewModel: ObservableObject {
             withAnimation(.easeOut(duration: 0.4)) {
                 self.showInput = true
             }
+        }
+    }
+
+    func sendMessage() {
+        let text = inputText.trimmingCharacters(in: .whitespaces)
+        guard !text.isEmpty else { return }
+        messages.append(ChatMessage(text: text, isUser: true))
+        inputText = ""
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            self?.messages.append(ChatMessage(
+                text: "I hear you. Let me find something calming for you.",
+                isUser: false
+            ))
         }
     }
 }
