@@ -62,7 +62,7 @@ struct MismatchDetailScreen: View {
                 baselineValue: Int(viewModel.baselineHR),
                 unit: "BPM",
                 deltaLabel: "\(Int(viewModel.hrElevationPercent))% elevated",
-                deltaColor: NervRestTheme.Arousal.high,
+                deltaColor: NervRestTheme.Arousal.elevated,
                 isUp: true
             )
 
@@ -77,7 +77,7 @@ struct MismatchDetailScreen: View {
                 baselineValue: Int(viewModel.baselineHRV),
                 unit: "ms",
                 deltaLabel: "\(Int(viewModel.hrvDepressionPercent))% depressed",
-                deltaColor: NervRestTheme.Arousal.elevated,
+                deltaColor: NervRestTheme.Accent.secondary,
                 isUp: false
             )
         }
@@ -201,7 +201,7 @@ struct MismatchDetailScreen: View {
         HStack(spacing: NervRestTheme.Spacing.sm) {
             Image(systemName: "exclamationmark.triangle.fill")
                 .font(.system(size: 14))
-                .foregroundColor(NervRestTheme.Arousal.elevated)
+                .foregroundColor(NervRestTheme.Accent.primary)
 
             Text(viewModel.reason)
                 .font(NervRestTheme.Fonts.body)
@@ -211,7 +211,7 @@ struct MismatchDetailScreen: View {
         .padding(NervRestTheme.Spacing.md)
         .background(
             RoundedRectangle(cornerRadius: NervRestTheme.Radius.md)
-                .fill(NervRestTheme.Arousal.elevated.opacity(0.08))
+                .fill(NervRestTheme.Accent.primary.opacity(0.08))
         )
         .opacity(appearAnimation ? 1.0 : 0.0)
     }
@@ -232,9 +232,9 @@ struct MismatchDetailScreen: View {
             .padding(.vertical, NervRestTheme.Spacing.md)
             .background(
                 RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
-                    .fill(NervRestTheme.Arousal.calm)
+                    .fill(NervRestTheme.Accent.primary)
                     .shadow(
-                        color: NervRestTheme.Arousal.calm.opacity(0.4),
+                        color: NervRestTheme.Accent.primary.opacity(0.4),
                         radius: 12,
                         y: 4
                     )
