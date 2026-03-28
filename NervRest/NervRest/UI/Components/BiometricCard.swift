@@ -35,10 +35,11 @@ struct BiometricCard: View {
         .padding(NervRestTheme.Spacing.md)
         .background(
             RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
-                .fill(NervRestTheme.Surface.cardBackground)
+                .fill(.ultraThinMaterial)
+                .environment(\.colorScheme, .dark)
                 .overlay(
                     RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
-                        .stroke(NervRestTheme.Surface.cardBorder, lineWidth: 1)
+                        .stroke(NervRestTheme.Surface.cardBorder.opacity(0.4), lineWidth: 0.5)
                 )
         )
     }
