@@ -65,7 +65,11 @@ struct NervRestApp: App {
                             DemoFlowScreen(
                                 homeViewModel: container.homeViewModel,
                                 rampDownViewModel: container.rampDownViewModel,
-                                alarmTime: container.contextProvider.currentContext.alarmTime?.hourMinute ?? "7:00 AM"
+                                alarmTime: container.contextProvider.currentContext.alarmTime?.hourMinute ?? "7:00 AM",
+                                onExit: {
+                                    container.homeViewModel.stopMonitoring()
+                                    router.popToRoot()
+                                }
                             )
                             .navigationBarHidden(true)
                         case .lunaChat:
