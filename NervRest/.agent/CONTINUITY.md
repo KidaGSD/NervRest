@@ -1,6 +1,7 @@
 # NervRest Continuity
 
 ## [PROGRESS]
+- **2026-03-28T22:22Z** [CODE] Moon mascot integration: Replaced emoji text with moon phase SVG images from asset catalog in AgentCharacter.swift, IslandCompactLeading.swift, IslandExpandedView.swift. Build succeeded (iPhone 17 Simulator). Committed `59cec60`.
 - **2026-03-28T16:00Z** [CODE] Task 4 (mechanism refinement): Connected InterventionScheduler phase changes to UI navigation.
   - `AppContainer.swift` — added `@Published var pendingNavigation: AppRoute?`; added Combine sink on `scheduler.$currentPhase` mapping `.strongNudge`→`.mismatchDetail`, `.intervention`→`.shieldOverlay`; wired `rampDownVM.onSuggestionSelected` to `scheduler.userChoseRampDown()`.
   - `RampDownViewModel.swift` — added `onSuggestionSelected` callback and `selectSuggestion(_:)` method.
@@ -51,4 +52,14 @@
   - `color(for:)` signatures and switch logic unchanged. Build succeeded (iPhone 17 Simulator).
 
 ## [DISCOVERIES]
+- **2026-03-28T17:30Z** [TOOL] UI Premium Design Research completed. Key findings for eliminating "vibe-coded" feel:
+  1. Typography: Replace all-SF-Rounded with DM Serif Display (headings) + DM Sans (body), keep .rounded for numeric scores only
+  2. Background: Single-color #171120 → multi-layer radial gradient + ~3% opacity noise overlay
+  3. Card diversity: Mix full-bleed sections, glassmorphism, floating pills, edge-accented cards (not uniform cards everywhere)
+  4. Color shadows: Use ember/dusk colored shadows instead of black shadows for warmth and depth
+  5. Layout asymmetry: Vary section spacing (24/40/32 not uniform 24), hero elements get extra breathing room
+  6. Dark mode depth: 5-layer elevation system (#0D0A14 → #342648), top-left highlight stroke on cards
+  7. Serif dark mode rules: 24pt+ only, medium weight, low-contrast serifs (Lora > Didot), off-white text (#E0E0E0)
+  8. Current strengths: Tinted dusk-purple neutrals already better than generic gray; Arousal spectrum is distinctive
+  Sources: 24 references from Dev.to, Apple HIG, TypeDrawers, Figma Blog, Medium, etc. Full report in chat.
 - **2026-03-28T13:33Z** [CODE] `StimulationEngine`, `MismatchDetector`, and `InterventionScheduler` classes do not yet exist as Swift files in the repo — they are referenced as forward declarations from other tasks. `SessionManager` compiles only once those are implemented.
