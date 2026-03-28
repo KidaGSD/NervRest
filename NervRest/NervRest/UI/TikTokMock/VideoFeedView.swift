@@ -1,206 +1,162 @@
 import SwiftUI
 import AVKit
 
-// MARK: - Data Model
+// MARK: - Simple looping video player
 
-struct MockVideo: Identifiable {
-    let id: Int
-    let player: AVPlayer
-    let resourceName: String
+struct LoopingVideoPlayer: UIViewRepresentable {
+    let videoName: String
+
+    func makeUIView(context: Context) -> UIView {
+        let view = PlayerUIView(videoName: videoName)
+        return view
+    }
+
+    func updateUIView(_ uiView: UIView, context: Context) {}
 }
 
-// MARK: - Video Carousel (UIScrollView-based vertical paging)
+class PlayerUIView: UIView {
+    private var playerLayer = AVPlayerLayer()
+    private var player: AVPlayer?
 
-struct VideoCarouselView: UIViewRepresentable {
-    class Coordinator: NSObject, UIScrollViewDelegate {
-        var parent: VideoCarouselView
-        var currentIndex = 0
+    init(videoName: String) {
+        super.init(frame: .zero)
+        backgroundColor = .black
 
-        init(_ parent: VideoCarouselView) {
-            self.parent = parent
-        }
+        guard let path = Bundle.main.path(forResource: videoName, ofType: "mp4") else { return }
+        let url = URL(fileURLWithPath: path)
+        player = AVPlayer(url: url)
+        player?.isMuted = true
 
-        func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-            let newIndex = Int(scrollView.contentOffset.y / scrollView.frame.height)
-            guard newIndex != currentIndex, newIndex >= 0, newIndex < parent.videos.count else { return }
+        playerLayer.player = player
+        playerLayer.videoGravity = .resizeAspectFill
+        layer.addSublayer(playerLayer)
 
-            // Pause old, play new
-            parent.videos[currentIndex].player.pause()
-            currentIndex = newIndex
-            let current = parent.videos[currentIndex]
-            current.player.seek(to: .zero)
-            current.player.play()
-        }
-    }
-
-    let videos: [MockVideo]
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-
-    func makeUIView(context: Context) -> UIScrollView {
-        let scrollView = UIScrollView()
-        scrollView.isPagingEnabled = true
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.contentInsetAdjustmentBehavior = .never
-        scrollView.delegate = context.coordinator
-        scrollView.backgroundColor = .black
-
-        let screenWidth = UIScreen.main.bounds.width
-        let screenHeight = UIScreen.main.bounds.height
-
-        scrollView.contentSize = CGSize(
-            width: screenWidth,
-            height: screenHeight * CGFloat(videos.count)
+        // Loop
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(playerDidFinish),
+            name: .AVPlayerItemDidPlayToEndTime,
+            object: player?.currentItem
         )
 
-        for (index, video) in videos.enumerated() {
-            let playerVC = AVPlayerViewController()
-            playerVC.player = video.player
-            playerVC.showsPlaybackControls = false
-            playerVC.videoGravity = .resizeAspectFill
-            playerVC.view.backgroundColor = .black
-            playerVC.view.frame = CGRect(
-                x: 0,
-                y: screenHeight * CGFloat(index),
-                width: screenWidth,
-                height: screenHeight
-            )
-            scrollView.addSubview(playerVC.view)
-        }
-
-        // Play first video
-        if let first = videos.first {
-            first.player.play()
-            loopVideo(first.player)
-        }
-
-        return scrollView
+        player?.play()
     }
 
-    func updateUIView(_ uiView: UIScrollView, context: Context) {}
+    required init?(coder: NSCoder) { fatalError() }
 
-    private func loopVideo(_ player: AVPlayer) {
-        NotificationCenter.default.addObserver(
-            forName: .AVPlayerItemDidPlayToEndTime,
-            object: player.currentItem,
-            queue: .main
-        ) { _ in
-            player.seek(to: .zero)
-            player.play()
-        }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        playerLayer.frame = bounds
+    }
+
+    @objc private func playerDidFinish() {
+        player?.seek(to: .zero)
+        player?.play()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        player?.pause()
     }
 }
 
-// MARK: - Wrapper with overlays
+// MARK: - Wrapper with TikTok overlays
 
 struct VideoCarouselWrapper: View {
-    @State private var videos: [MockVideo] = []
-
-    private static let videoNames = ["video-1", "video-5", "video-8", "video-9"]
-
     var body: some View {
         ZStack {
-            if videos.isEmpty {
-                Color.black
-                    .ignoresSafeArea()
-                    .onAppear { loadVideos() }
-            } else {
-                VideoCarouselView(videos: videos)
-                    .ignoresSafeArea()
+            // Single looping video — simple and crash-free
+            LoopingVideoPlayer(videoName: "video-8")
+                .ignoresSafeArea()
 
-                // TikTok-style UI overlays
-                VStack {
+            // TikTok-style UI overlays
+            VStack {
+                // Top bar
+                HStack(spacing: 16) {
                     Spacer()
-                    HStack(alignment: .bottom) {
-                        // Bottom-left caption
-                        captionOverlay
-                            .padding(.leading, 16)
-                            .padding(.bottom, 16)
+                    Text("Following")
+                        .foregroundColor(.white.opacity(0.5))
+                    Text("For You")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                    Text("Live")
+                        .foregroundColor(.white.opacity(0.5))
+                    Spacer()
+                }
+                .font(.system(size: 16))
+                .padding(.top, 55)
 
-                        Spacer()
+                Spacer()
 
-                        // Right sidebar
-                        socialSidebar
-                            .padding(.trailing, 12)
-                            .padding(.bottom, 80)
-                    }
+                HStack(alignment: .bottom) {
+                    // Bottom-left caption
+                    captionOverlay
+                        .padding(.leading, 16)
+                        .padding(.bottom, 24)
+
+                    Spacer()
+
+                    // Right sidebar
+                    socialSidebar
+                        .padding(.trailing, 12)
+                        .padding(.bottom, 24)
                 }
             }
         }
     }
 
-    // MARK: - Social Sidebar
-
     private var socialSidebar: some View {
-        VStack(spacing: 20) {
-            Button(action: {}) {
-                Image("image-profile-1")
-                    .renderingMode(.original)
-                    .resizable()
-                    .frame(width: 48, height: 48)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.white, lineWidth: 1.5))
-            }
+        VStack(spacing: 22) {
+            Image("image-profile-1")
+                .renderingMode(.original)
+                .resizable()
+                .frame(width: 44, height: 44)
+                .clipShape(Circle())
+                .overlay(Circle().stroke(Color.white, lineWidth: 1))
 
-            sidebarButton(icon: "suit.heart.fill", label: "22.4k")
-            sidebarButton(icon: "message.fill", label: "1,021")
-            sidebarButton(icon: "arrowshape.turn.up.right.fill", label: "Share")
-            sidebarButton(icon: "bookmark.fill", label: "Save")
+            sidebarItem(icon: "suit.heart.fill", label: "22.4k")
+            sidebarItem(icon: "message.fill", label: "1,021")
+            sidebarItem(icon: "arrowshape.turn.up.right.fill", label: "Share")
+            sidebarItem(icon: "bookmark.fill", label: "Save")
         }
     }
 
-    private func sidebarButton(icon: String, label: String) -> some View {
-        Button(action: {}) {
-            VStack(spacing: 4) {
-                Image(systemName: icon)
-                    .font(.system(size: 26))
-                    .foregroundColor(.white)
-                Text(label)
-                    .font(.system(size: 11, weight: .semibold))
-                    .foregroundColor(.white)
-            }
+    private func sidebarItem(icon: String, label: String) -> some View {
+        VStack(spacing: 3) {
+            Image(systemName: icon)
+                .font(.system(size: 26))
+            Text(label)
+                .font(.system(size: 11, weight: .semibold))
         }
+        .foregroundColor(.white)
     }
-
-    // MARK: - Caption
 
     private var captionOverlay: some View {
-        VStack(alignment: .leading, spacing: 6) {
+        VStack(alignment: .leading, spacing: 5) {
             HStack(spacing: 6) {
-                Text("@creator_name")
-                    .font(.system(size: 15, weight: .bold))
-                    .foregroundColor(.white)
+                Text("@creator")
+                    .fontWeight(.bold)
                 Text("· Follow")
-                    .font(.system(size: 13, weight: .semibold))
+                    .fontWeight(.semibold)
                     .foregroundColor(.white.opacity(0.9))
             }
-            Text("Late night scrolling vibes #fyp #relatable")
+            .font(.system(size: 14))
+
+            Text("Late night scrolling vibes #fyp #nightowl")
                 .font(.system(size: 13))
                 .foregroundColor(.white.opacity(0.9))
                 .lineLimit(2)
-            HStack(spacing: 6) {
+
+            HStack(spacing: 5) {
                 Image(systemName: "music.note")
                     .font(.system(size: 11))
-                Text("Original Sound - creator_name")
+                Text("Original Sound")
                     .font(.system(size: 12))
             }
-            .foregroundColor(.white.opacity(0.85))
+            .foregroundColor(.white.opacity(0.8))
         }
-        .padding(.trailing, 60)
-    }
-
-    // MARK: - Load
-
-    private func loadVideos() {
-        videos = Self.videoNames.enumerated().compactMap { index, name in
-            guard let path = Bundle.main.path(forResource: name, ofType: "mp4") else { return nil }
-            let player = AVPlayer(url: URL(fileURLWithPath: path))
-            player.isMuted = true
-            return MockVideo(id: index, player: player, resourceName: name)
-        }
+        .foregroundColor(.white)
+        .padding(.trailing, 70)
     }
 }
 
