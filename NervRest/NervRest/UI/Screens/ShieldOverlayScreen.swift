@@ -50,15 +50,15 @@ struct ShieldOverlayScreen: View {
 
     private var cinematicBackground: some View {
         ZStack {
-            // Base: near-black
-            Color(hex: "#050508")
+            // Base: near-black with purple tint
+            Color(hex: "#0A0510")
 
             // Vertical gradient: subtle dark-blue at top fading to pure black
             LinearGradient(
                 gradient: Gradient(stops: [
-                    .init(color: Color(hex: "#0A0E1A").opacity(0.8), location: 0.0),
-                    .init(color: Color(hex: "#050508").opacity(1.0), location: 0.4),
-                    .init(color: Color(hex: "#050508"), location: 1.0),
+                    .init(color: Color(hex: "#171120").opacity(0.8), location: 0.0),
+                    .init(color: Color(hex: "#0A0510").opacity(1.0), location: 0.4),
+                    .init(color: Color(hex: "#0A0510"), location: 1.0),
                 ]),
                 startPoint: .top,
                 endPoint: .bottom
@@ -85,7 +85,7 @@ struct ShieldOverlayScreen: View {
             .fill(
                 RadialGradient(
                     gradient: Gradient(colors: [
-                        NervRestTheme.Arousal.high.opacity(breatheGlow ? 0.12 : 0.06),
+                        NervRestTheme.Accent.glow.opacity(breatheGlow ? 0.12 : 0.06),
                         Color.clear,
                     ]),
                     center: .center,
@@ -196,9 +196,9 @@ struct ShieldOverlayScreen: View {
                 .padding(.vertical, NervRestTheme.Spacing.md + 2)
                 .background(
                     RoundedRectangle(cornerRadius: NervRestTheme.Radius.lg)
-                        .fill(NervRestTheme.Arousal.calm)
+                        .fill(NervRestTheme.Accent.primary)
                         .shadow(
-                            color: NervRestTheme.Arousal.calm.opacity(0.5),
+                            color: NervRestTheme.Accent.primary.opacity(0.5),
                             radius: 20,
                             y: 6
                         )
