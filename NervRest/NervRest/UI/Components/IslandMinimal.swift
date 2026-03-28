@@ -16,11 +16,11 @@ struct IslandMinimal: View {
 
     private var arousalColor: Color {
         switch arousalScore {
-        case ..<3:   return Color(hex: "#1D9E75") // calm
-        case 3..<5:  return Color(hex: "#4CAF50") // moderate
-        case 5..<7:  return Color(hex: "#EF9F27") // elevated
-        case 7..<9:  return Color(hex: "#D85A30") // high
-        default:     return Color(hex: "#E24B4A") // critical
+        case ..<3:   return Color(hex: "#402959") // calm — dusk purple
+        case 3..<5:  return Color(hex: "#52312F") // moderate — warmth brown
+        case 5..<7:  return Color(hex: "#D35200") // elevated — ember orange
+        case 7..<9:  return Color(hex: "#842B00") // high — deep ember
+        default:     return Color(hex: "#E18050") // critical — bright ember
         }
     }
 }

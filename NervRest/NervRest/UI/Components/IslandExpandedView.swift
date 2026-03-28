@@ -80,11 +80,11 @@ struct IslandExpandedView: View {
         HStack(spacing: 16) {
             Label("\(heartRate) bpm", systemImage: "heart.fill")
                 .font(.system(size: 12, design: .rounded))
-                .foregroundColor(heartRate > 75 ? Color(hex: "#E24B4A") : Color(hex: "#4CAF50"))
+                .foregroundColor(heartRate > 75 ? Color(hex: "#D35200") : Color(hex: "#402959"))
 
             Label("\(hrv) ms", systemImage: "waveform.path.ecg")
                 .font(.system(size: 12, design: .rounded))
-                .foregroundColor(hrv < 35 ? Color(hex: "#E24B4A") : Color(hex: "#4CAF50"))
+                .foregroundColor(hrv < 35 ? Color(hex: "#D35200") : Color(hex: "#402959"))
 
             Spacer()
 
@@ -105,7 +105,7 @@ struct IslandExpandedView: View {
                     .font(.system(size: 13, weight: .semibold, design: .rounded))
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 8)
-                    .background(Color(hex: "#1D9E75")) // teal — calm color
+                    .background(Color(hex: "#D35200")) // ember orange — accent
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
@@ -137,11 +137,11 @@ struct IslandExpandedView: View {
 
     private var arousalColor: Color {
         switch arousalScore {
-        case ..<3:   return Color(hex: "#1D9E75")
-        case 3..<5:  return Color(hex: "#4CAF50")
-        case 5..<7:  return Color(hex: "#EF9F27")
-        case 7..<9:  return Color(hex: "#D85A30")
-        default:     return Color(hex: "#E24B4A")
+        case ..<3:   return Color(hex: "#402959") // calm — dusk purple
+        case 3..<5:  return Color(hex: "#52312F") // moderate — warmth brown
+        case 5..<7:  return Color(hex: "#D35200") // elevated — ember orange
+        case 7..<9:  return Color(hex: "#842B00") // high — deep ember
+        default:     return Color(hex: "#E18050") // critical — bright ember
         }
     }
 }

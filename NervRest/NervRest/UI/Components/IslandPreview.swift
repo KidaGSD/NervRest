@@ -112,7 +112,7 @@ struct IslandPreview_Previews: PreviewProvider {
             }
             .padding()
         }
-        .background(Color(hex: "#0D1117"))
+        .background(Color(hex: "#171120"))
         .preferredColorScheme(.dark)
     }
 }
