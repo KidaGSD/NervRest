@@ -1,6 +1,6 @@
 import UserNotifications
 
-class NotificationManager {
+class NotificationManager: NotificationManaging {
     func requestPermission() async {
         try? await UNUserNotificationCenter.current()
             .requestAuthorization(options: [.alert, .sound, .badge])

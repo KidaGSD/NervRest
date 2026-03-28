@@ -1,7 +1,11 @@
 import SwiftUI
 
 struct HomeScreen: View {
-    @StateObject private var viewModel = HomeViewModel()
+    @ObservedObject var viewModel: HomeViewModel
+
+    init(viewModel: HomeViewModel = HomeViewModel()) {
+        self.viewModel = viewModel
+    }
 
     // MARK: - Status Message
 
@@ -150,7 +154,7 @@ struct HomeScreen: View {
 #if DEBUG
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreen()
+        HomeScreen(viewModel: HomeViewModel())
     }
 }
 #endif

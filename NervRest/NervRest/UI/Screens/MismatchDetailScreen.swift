@@ -1,8 +1,13 @@
 import SwiftUI
 
 struct MismatchDetailScreen: View {
-    @StateObject private var viewModel = MismatchViewModel()
+    @ObservedObject var viewModel: MismatchViewModel
     var onWindDown: () -> Void = {}
+
+    init(viewModel: MismatchViewModel = MismatchViewModel(), onWindDown: @escaping () -> Void = {}) {
+        self.viewModel = viewModel
+        self.onWindDown = onWindDown
+    }
 
     @State private var appearAnimation = false
 
@@ -246,7 +251,7 @@ struct MismatchDetailScreen: View {
 #if DEBUG
 struct MismatchDetailScreen_Previews: PreviewProvider {
     static var previews: some View {
-        MismatchDetailScreen(onWindDown: {})
+        MismatchDetailScreen(viewModel: MismatchViewModel(), onWindDown: {})
             .preferredColorScheme(.dark)
     }
 }

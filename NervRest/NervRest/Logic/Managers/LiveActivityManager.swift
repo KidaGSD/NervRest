@@ -16,7 +16,7 @@ struct NervRestActivityAttributes: ActivityAttributes {
     let userName: String
 }
 
-class LiveActivityManager: ObservableObject {
+class LiveActivityManager: ObservableObject, LiveActivityManaging {
     @Published var isActive = false
     private var currentActivity: Activity<NervRestActivityAttributes>?
 
@@ -56,6 +56,29 @@ class LiveActivityManager: ObservableObject {
         )
         Task {
             await currentActivity?.update(ActivityContent(state: state, staleDate: nil))
+        }
+    }
+
+    // MARK: - LiveActivityManaging conformance
+
+    func updateState(_ state: LiveActivityState) {
+        switch state {
+        case .idle:
+            break
+        case .monitoring(let score):
+            update(score: score, heartRate: Int(score.total * 6 + 30), hrv: 55,
+                   currentApp: "Monitoring", minutesUntilAlarm: nil)
+        case .elevated(let score):
+            update(score: score, heartRate: Int(score.total * 6 + 30), hrv: 40,
+                   currentApp: "Elevated", minutesUntilAlarm: nil)
+        case .warning(let score):
+            update(score: score, heartRate: Int(score.total * 6 + 30), hrv: 30,
+                   currentApp: "Warning", minutesUntilAlarm: nil)
+        case .critical(let score):
+            update(score: score, heartRate: Int(score.total * 6 + 30), hrv: 22,
+                   currentApp: "Critical", minutesUntilAlarm: nil)
+        case .recovering:
+            break
         }
     }
 

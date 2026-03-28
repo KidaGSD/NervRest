@@ -1,9 +1,17 @@
 import SwiftUI
 
 struct RampDownScreen: View {
-    @StateObject private var viewModel = RampDownViewModel()
+    @ObservedObject var viewModel: RampDownViewModel
     var onSuggestionTapped: (RampDownSuggestion) -> Void = { _ in }
     var onFreeTextSubmit: (String) -> Void = { _ in }
+
+    init(viewModel: RampDownViewModel = RampDownViewModel(),
+         onSuggestionTapped: @escaping (RampDownSuggestion) -> Void = { _ in },
+         onFreeTextSubmit: @escaping (String) -> Void = { _ in }) {
+        self.viewModel = viewModel
+        self.onSuggestionTapped = onSuggestionTapped
+        self.onFreeTextSubmit = onFreeTextSubmit
+    }
 
     @State private var appearAnimation = false
     @FocusState private var isTextFieldFocused: Bool
@@ -226,7 +234,7 @@ struct RampDownScreen: View {
 #if DEBUG
 struct RampDownScreen_Previews: PreviewProvider {
     static var previews: some View {
-        RampDownScreen()
+        RampDownScreen(viewModel: RampDownViewModel())
             .preferredColorScheme(.dark)
     }
 }
