@@ -21,7 +21,15 @@ struct TikTokMockScreen: View {
             VideoCarouselWrapper()
                 .ignoresSafeArea()
 
-            // NervRest biometric overlay (top-left, over the TikTok UI)
+            // Fake Dynamic Island pill (top center)
+            VStack {
+                fakeDynamicIsland
+                    .padding(.top, 12)
+
+                Spacer()
+            }
+
+            // NervRest biometric overlay (top-left, below island)
             VStack {
                 HStack(alignment: .top) {
                     biometricOverlay
@@ -34,6 +42,39 @@ struct TikTokMockScreen: View {
             }
         }
         .preferredColorScheme(.dark)
+    }
+
+    // MARK: - Fake Dynamic Island
+
+    private var fakeDynamicIsland: some View {
+        HStack(spacing: 0) {
+            // Left: agent mood
+            Text(agentEmoji)
+                .font(.system(size: 16))
+                .padding(.leading, 14)
+
+            Spacer()
+
+            // Right: arousal score with color
+            Text(String(format: "%.0f", arousalScore))
+                .font(.system(size: 14, weight: .bold, design: .rounded))
+                .foregroundColor(arousalColor)
+                .padding(.trailing, 14)
+        }
+        .frame(width: 126, height: 37)
+        .background(Color.black)
+        .cornerRadius(19)
+        .animation(.easeInOut(duration: 0.5), value: arousalScore)
+    }
+
+    private var agentEmoji: String {
+        switch arousalScore {
+        case ..<30: return "😊"
+        case 30..<50: return "😊"
+        case 50..<70: return "😐"
+        case 70..<90: return "😟"
+        default: return "😟"
+        }
     }
 
     // MARK: - Biometric Overlay
