@@ -4,7 +4,7 @@ import SwiftUI
 // MARK: - Activity Attributes (must match main app's definition exactly)
 
 struct NervRestActivityAttributes: ActivityAttributes {
-    public struct ContentState: Codable, Hashable {
+    struct ContentState: Codable, Hashable {
         var arousalScore: Double
         var heartRate: Int
         var hrv: Int
@@ -14,8 +14,8 @@ struct NervRestActivityAttributes: ActivityAttributes {
         var minutesUntilAlarm: Int?
     }
 
-    var sessionStartTime: Date
-    var userName: String
+    let sessionStartTime: Date
+    let userName: String
 }
 
 // MARK: - Color Hex Extension
