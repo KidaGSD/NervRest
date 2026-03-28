@@ -1,0 +1,272 @@
+{
+  "meta": {
+    "name": "NervRest V3 — Lunar Observatory",
+    "description": "Nervous system monitoring iOS app with moon mascot Luna. Dark dusk-purple theme, ember accents, conversational AI companion. Evolved from V2 Dusk using research from Oura, WHOOP, Calm, Variant community patterns.",
+    "source_references": [
+      "NervRest V2 Dusk codebase (current)",
+      "Oura Ring app redesign (Oct 2025)",
+      "WHOOP performance dashboard",
+      "Calm app dark mode",
+      "Variant.com community gallery",
+      "Pinterest health/wellness dark UI",
+      "Figma V2 Dusk team designs (Shield flow + In-App Luna greeting)"
+    ],
+    "created_at": "2026-03-28"
+  },
+
+  "design_system": {
+    "color": {
+      "palette_type": "analogous",
+      "primary": { "hex": "#171120", "role": "Deep dusk purple — main background, canvas" },
+      "secondary": { "hex": "#402959", "role": "Dusk 300 — card borders, calm arousal, active states" },
+      "accent": { "hex": "#D35200", "role": "Ember orange — primary CTA, alerts, arousal visualization" },
+      "neutral": {
+        "scale": ["#0D0A14", "#171120", "#1E1730", "#281C38", "#342648", "#402959"],
+        "usage": "6-level dusk elevation system — each step adds ~5% white overlay equivalent on purple base"
+      },
+      "semantic": {
+        "success": "#402959",
+        "warning": "#D35200",
+        "error": "#E18050",
+        "info": "#A27DBC"
+      },
+      "surface": {
+        "background": "#0D0A14",
+        "card": "#1E1730",
+        "elevated": "#281C38"
+      },
+      "contrast_strategy": "Dusk lavender text (#CFBEDB) on deep purple backgrounds. Ember accent used sparingly — max 2 accent colors visible simultaneously. Colored shadows (dusk-tinted, not black)."
+    },
+
+    "typography": {
+      "type_scale": {
+        "display": { "size": "56pt", "weight": "heavy", "line_height": "1.0", "tracking": "-2%" },
+        "heading_1": { "size": "40pt", "weight": "bold", "line_height": "1.1", "tracking": "-1%" },
+        "heading_2": { "size": "28pt", "weight": "bold", "line_height": "1.15", "tracking": "-0.5%" },
+        "heading_3": { "size": "20pt", "weight": "semibold", "line_height": "1.2", "tracking": "0" },
+        "body": { "size": "15pt", "weight": "regular", "line_height": "1.4", "tracking": "0" },
+        "body_small": { "size": "13pt", "weight": "regular", "line_height": "1.35", "tracking": "0" },
+        "caption": { "size": "12pt", "weight": "medium", "line_height": "1.3", "tracking": "+2%" },
+        "overline": { "size": "11pt", "weight": "medium", "line_height": "1.2", "tracking": "+5%" }
+      },
+      "font_families": {
+        "heading": "SF Pro Display",
+        "body": "SF Pro Text",
+        "mono": "SF Mono"
+      },
+      "font_style_notes": "SF Pro throughout — clean, Apple-native. .default design (NOT .rounded) for all text. Exception: numeric scores use .rounded design for friendly data readability. 5.3:1 ratio between hero score (56pt) and labels (11pt) creates Oura-level typographic drama."
+    },
+
+    "spacing": {
+      "base_unit": "8pt",
+      "scale": [4, 8, 12, 16, 24, 32, 40, 48, 56],
+      "content_density": "spacious",
+      "section_rhythm": "Variable rhythm: 12pt tight (within groups), 24pt normal (related items), 40pt breathe (between sections), 56pt dramatic (before hero elements). NOT uniform grid."
+    },
+
+    "layout": {
+      "grid_system": "Single-column mobile, center-aligned hero content",
+      "max_content_width": "393pt (iPhone Pro width)",
+      "columns": "1 main, 2-column grid for BiometricCards",
+      "gutter": "16pt",
+      "breakpoints": "N/A (iOS native, no responsive breakpoints)",
+      "alignment_tendency": "centered hero, left-aligned cards"
+    },
+
+    "shape": {
+      "border_radius": {
+        "small": "8pt",
+        "medium": "16pt",
+        "large": "24pt",
+        "pill": "999pt"
+      },
+      "border_usage": "0.5px gradient strokes — brighter at top (white 15%), fading to near-invisible at bottom (white 3%). Simulates overhead lighting.",
+      "divider_style": "None — use spacing and surface elevation to separate sections"
+    },
+
+    "elevation": {
+      "shadow_style": "Colored tinted shadows — dusk purple (#402959) for neutral cards, ember (#D35200) for active/CTA states. Never pure black.",
+      "levels": {
+        "low": "shadow(color: #402959 50%, radius: 6, y: 3)",
+        "medium": "shadow(color: #402959 50%, radius: 12, y: 6)",
+        "high": "shadow(color: #D35200 30%, radius: 20, y: 8)"
+      },
+      "depth_cues": "Glass material (.ultraThinMaterial), multi-layer radial gradients, top-light gradient borders, 6-level surface elevation scale"
+    },
+
+    "iconography": {
+      "style": "SF Symbols — outlined/filled depending on state",
+      "stroke_weight": "medium (default)",
+      "size_scale": ["10pt", "13pt", "16pt", "20pt"],
+      "preferred_set": "SF Symbols (heart.fill, waveform.path.ecg, moon.fill, sparkles)"
+    },
+
+    "motion": {
+      "easing": "Spring (response: 0.6, dampingFraction: 0.7) for entrances. EaseInOut for state changes.",
+      "duration_scale": {
+        "micro": "0.2s (button feedback, pill color change)",
+        "normal": "0.6s (card entrance, gauge animation)",
+        "macro": "1.2s (screen transition, curtain drop)"
+      },
+      "entrance_pattern": "Staggered reveal — each element delayed 0.1s, spring from 0.8 scale + 20pt y-offset",
+      "exit_pattern": "Fade opacity to 0, 0.3s duration",
+      "philosophy": "Cinematic but restrained. Breathing glow loops (4s easeInOut) on hero elements. Never gratuitous bouncing."
+    },
+
+    "components": {
+      "button_style": "Full-width rounded rect (16pt radius), ember fill for primary, outlined for secondary. Colored shadow matching fill.",
+      "input_style": "Rounded rect (16pt radius), dusk card fill, 0.5px border that changes to accent on focus. SF Pro text.",
+      "card_style": "Mixed: glassmorphism (.ultraThinMaterial) for biometric data, gradient fill (cardBackground → 60% opacity) for suggestions, edge-accented (4px left bar) for actionable items.",
+      "navigation_pattern": "NavigationStack with push transitions. Back button is custom circle.",
+      "modal_style": "Full-screen cinematic overlay with curtain-drop animation",
+      "list_style": "Stacked cards with staggered entrance animation",
+      "component_notes": "Card variety is critical — never use the same card style for everything. Hero gauge sits directly on gradient background with NO card wrapper."
+    }
+  },
+
+  "design_style": {
+    "aesthetic": {
+      "mood": ["nocturnal", "protective", "scientific", "intimate", "calm"],
+      "visual_metaphor": "Observatory at night — watching over your nervous system like astronomers watch the sky. Luna (moon mascot) is the gentle guardian.",
+      "era_influence": "2025-2026 premium health tech — Oura/WHOOP data density meets Calm app warmth",
+      "genre": "Premium health companion — between clinical biometric dashboard and cozy wellness app",
+      "personality_traits": ["caring", "knowledgeable", "gentle", "vigilant", "warm"],
+      "adjectives": ["warm", "dim", "scientific", "protective", "ambient"]
+    },
+
+    "visual_language": {
+      "complexity": "moderate",
+      "ornamentation": "subtle accents — glowing halos around moon mascot, gradient arc on gauge, breathing radial glow",
+      "whitespace_usage": "Generous in hero area (56pt before gauge), compressed in data cards. Creates breathing rhythm.",
+      "visual_weight_distribution": "Top-heavy — mascot + gauge dominate upper 60%, data + actions in lower 40%",
+      "focal_strategy": "Single hero element (arousal gauge) with Luna mascot as emotional anchor above it",
+      "contrast_level": "High typographic contrast (56pt score vs 11pt labels). Low surface contrast (subtle elevation steps between dusk purples).",
+      "texture_usage": "3% noise overlay on deep background for tactile warmth. Glass material blur on data cards."
+    },
+
+    "composition": {
+      "hierarchy_method": "Scale contrast + spatial isolation. Hero score is 56pt isolated in gauge ring. Everything else is significantly smaller.",
+      "balance_type": "Radial — gauge and mascot centered, biometric pills balanced horizontally",
+      "flow_direction": "Top-to-bottom: mascot → status → gauge → data → action",
+      "grouping_strategy": "Proximity + shared container. Related metrics share a card. Unrelated sections separated by 40pt+ gap.",
+      "negative_space_role": "Primary tool for hierarchy. Hero area breathes. Data area is dense. Contrast between them creates drama."
+    },
+
+    "imagery": {
+      "photo_treatment": "N/A — no photos in app",
+      "illustration_style": "Kawaii moon character (Luna) — 7 phases from full to new moon. Warm cream/dark navy duotone. Subtle glow halo.",
+      "graphic_elements": "Circular gauge arc with angular gradient, radial glow backgrounds, pill-shaped badges",
+      "pattern_usage": "None — rely on color and spacing, not patterns",
+      "image_shape": "Circular — mascot clipped to circle, gauge is circular, biometric pills are capsule"
+    },
+
+    "interaction_feel": {
+      "feedback_style": "Haptic on arousal threshold crossings. Visual glow intensifies with arousal level.",
+      "hover_behavior": "N/A (iOS touch, no hover)",
+      "transition_personality": "Spring entrances (bouncy but damped), cinematic overlays (curtain drop + staggered reveal)",
+      "loading_style": "Centered Luna mascot with breathing glow",
+      "microinteraction_density": "Medium — heart icon pulses when HR elevated, gauge arc animates on score change, breathing glow loops on hero"
+    },
+
+    "brand_voice_in_ui": {
+      "tone": "Gentle but direct. 'Your body isn't resting' — not aggressive, just factual and caring.",
+      "formality": "Informal but knowledgeable. First-person-plural ('Let's wind down').",
+      "cta_style": "Friendly invitation — 'Show me alternatives', 'Chat with Luna'",
+      "empty_state_approach": "Luna greeting — 'Good Evening, CC. How can I help you tonight?'",
+      "error_tone": "Empathetic — explain what happened, suggest what to do, never blame"
+    }
+  },
+
+  "visual_effects": {
+    "overview": {
+      "effect_intensity": "subtle-accent",
+      "performance_tier": "lightweight",
+      "fallback_strategy": "All effects are native SwiftUI — no fallback needed",
+      "primary_technology": "SwiftUI animations + RadialGradient + .ultraThinMaterial"
+    },
+
+    "background_effects": {
+      "type": "multi-layer-radial-gradient",
+      "description": "3-layer background: (1) warm ambient glow top-right from Accent.glow at 4%, (2) arousal-driven status color radial at center at 10%, (3) linear purple wash fading to bottom. Arousal glow intensifies 3%→15% as score rises.",
+      "technology": "SwiftUI RadialGradient + LinearGradient",
+      "params": {
+        "color_palette": ["#F8C8A3", "#D35200", "#281C38"],
+        "speed": "static (reacts to score changes)",
+        "density": "3 layers",
+        "opacity": "3-15% per layer",
+        "blend_mode": "normal"
+      }
+    },
+
+    "particle_systems": { "enabled": false, "type": "none", "description": "No particles — would distract from biometric data focus" },
+
+    "3d_elements": { "enabled": false, "type": "none", "description": "No 3D — keep lightweight for always-on health monitoring" },
+
+    "shader_effects": { "enabled": false, "type": "none", "description": "No custom shaders" },
+
+    "scroll_effects": {
+      "parallax": { "enabled": false, "layers": "0", "depth_range": "N/A", "speed_curve": "N/A" },
+      "scroll_triggered_animations": {
+        "enabled": true,
+        "trigger_points": "On appear",
+        "animation_type": "Staggered spring entrance — scale from 0.8 + offset y 20pt, 0.1s delay per element",
+        "scrub_behavior": "none"
+      },
+      "scroll_morphing": { "enabled": false, "description": "None" }
+    },
+
+    "text_effects": {
+      "type": "numeric-counter",
+      "description": "Arousal score animates numerically (counts up/down) rather than snapping. Uses .contentTransition(.numericText)",
+      "technology": "SwiftUI contentTransition",
+      "params": {
+        "split_strategy": "N/A",
+        "animation_per_unit": "spring 0.8s",
+        "stagger": "none",
+        "effect_style": "counter"
+      }
+    },
+
+    "cursor_effects": { "enabled": false, "type": "none", "description": "iOS — no cursor" },
+
+    "image_effects": {
+      "type": "glow-halo",
+      "description": "Luna moon mascot has radial gradient glow behind it. Glow color changes with mood: warm peach (#F8C8A3) for happy/relieved, ember (#D35200) for concerned, deep ember (#842B00) for worried.",
+      "technology": "SwiftUI RadialGradient",
+      "params": {
+        "filter_pipeline": "none",
+        "hover_transform": "N/A",
+        "reveal_animation": "spring scale from 0.4 to 1.0",
+        "distortion_type": "none"
+      }
+    },
+
+    "glassmorphism_neumorphism": {
+      "enabled": true,
+      "style": "frosted-layers",
+      "params": {
+        "blur_radius": "system (.ultraThinMaterial)",
+        "transparency": "System-managed dark mode material",
+        "border_treatment": "Top-light gradient stroke: white 15% at top → white 3% at bottom, 0.5px lineWidth",
+        "shadow_type": "Dusk-tinted colored shadow (#402959 at 50%)",
+        "light_source_angle": "Top-center (simulated via gradient border)"
+      }
+    },
+
+    "canvas_drawings": { "enabled": false, "type": "none" },
+
+    "svg_animations": {
+      "enabled": true,
+      "type": "mascot-phase-transition",
+      "description": "Luna moon mascot SVGs transition between phases (full→waning→crescent→new) based on arousal level. Crossfade transition.",
+      "params": {
+        "animation_method": "SwiftUI Image swap with opacity transition",
+        "path_morphing": false,
+        "stroke_animation": false,
+        "filter_effects": "none"
+      }
+    },
+
+    "composite_notes": "V3 key upgrades from V2: (1) Add 3% noise texture overlay on background for tactile warmth — eliminates 'digital void' feel. (2) Top-light gradient borders on all cards instead of uniform white stroke. (3) Colored dusk-tinted shadows instead of black. (4) Arousal-driven background glow that intensifies from 3% to 15% as score rises — ambient state awareness. (5) Conversational home screen with Luna greeting + chat input, per Figma team direction. (6) Variable elevation system using 6-level dusk-purple scale."
+  }
+}
